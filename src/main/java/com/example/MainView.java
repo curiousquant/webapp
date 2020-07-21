@@ -57,7 +57,7 @@ public class MainView extends VerticalLayout  {
         grid.setWidth("1000px");
         final Grid<Equipment> statGrid = new Grid<>();
         statGrid.setWidth("1000px");
-        Bag b = new Bag();
+        Bagv2 b = new Bagv2();
         setSizeFull();
 
         MultiFileMemoryBuffer multiFileMemoryBuffer = new MultiFileMemoryBuffer();
@@ -70,15 +70,18 @@ public class MainView extends VerticalLayout  {
             // from inputStream
             try{
                 String bag = IOUtils.toString(inputStreamBag, StandardCharsets.UTF_8);
+                //System.out.println(bag);
                 if(bag.length()>1){
                     b.loadInventory(bag);
-                    ArrayList<Equipment> tmp = new ArrayList<>();
-                    tmp.addAll(b.getW());
-                    tmp.addAll(b.getH());
-                    tmp.addAll(b.getCh());
-                    tmp.addAll(b.getN());
-                    tmp.addAll(b.getR());
-                    tmp.addAll(b.getB());
+                    
+                    ArrayList<Equipment> tmp = b.convertArray2List(b.wInventory,b.strInventory,"W");
+                    
+                    
+                    // tmp.addAll(b.getH());
+                    // tmp.addAll(b.getCh());
+                    // tmp.addAll(b.getN());
+                    // tmp.addAll(b.getR());
+                    // tmp.addAll(b.getB());
 
                     grid.setItems(tmp);
                 }
@@ -97,7 +100,8 @@ public class MainView extends VerticalLayout  {
 
         
         
-        //grid.addColumn(Equipment::getPk).setHeader("pk");
+        grid.addColumn(Equipment::getPk).setHeader("pk");
+            
         grid.addColumn(Equipment::getId).setHeader("id");
         grid.addColumn(Equipment::getF_atk).setHeader("flat atk");
         grid.addColumn(Equipment::getF_def).setHeader("flat def");
@@ -113,7 +117,7 @@ public class MainView extends VerticalLayout  {
         grid.addColumn(Equipment::getSet).setHeader("set");
 
         add(grid,upload);
-        
+
         statGrid.addColumn(Equipment::getId).setHeader("id");
         statGrid.addColumn(Equipment::getF_atk).setHeader("flat atk");
         statGrid.addColumn(Equipment::getF_def).setHeader("flat def");
@@ -129,29 +133,29 @@ public class MainView extends VerticalLayout  {
         statGrid.addColumn(Equipment::getSet).setHeader("set");
         add(statGrid);
         // Button click listeners can be defined as lambda expressions
-        Button button = new Button("Run Calcs",
-        e -> {
-            Sets s = b.superCalcs(b.getW(), b.getH(), b.getCh(), b.getN(), b.getR(), b.getB());
-            ArrayList<Equipment> tmp = new ArrayList<>();
-            tmp.add(s.getWeapon());
-            tmp.add(s.getHead());
-            tmp.add(s.getChest());
-            tmp.add(s.getNeck());
-            tmp.add(s.getRing());
-            tmp.add(s.getBoot());
+        // Button button = new Button("Run Calcs",
+        // e -> {
+        //     Sets s = b.superCalcs(b.getW(), b.getH(), b.getCh(), b.getN(), b.getR(), b.getB());
+        //     ArrayList<Equipment> tmp = new ArrayList<>();
+        //     tmp.add(s.getWeapon());
+        //     tmp.add(s.getHead());
+        //     tmp.add(s.getChest());
+        //     tmp.add(s.getNeck());
+        //     tmp.add(s.getRing());
+        //     tmp.add(s.getBoot());
             
             
-            statGrid.setItems(tmp);
+        //     statGrid.setItems(tmp);
             
             
-            }
+        //     }
         
-        );
+        // );
 
         // Theme variants give you predefined extra styles for components.
         // Example: Primary button has a more prominent look.
-        button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        add(button);
+        // button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        // add(button);
 
         
 
