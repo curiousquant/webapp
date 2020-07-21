@@ -11,7 +11,11 @@ public class Sets {
         this.boot = boot;
         
     }
+    public Sets(){
+        
+    }
 
+    
     public Equipment getWeapon() {
         return this.weapon;
     }

@@ -54,9 +54,11 @@ public class MainView extends VerticalLayout  {
     public MainView(@Autowired GreetService service) {
         
         final Grid<Equipment> grid = new Grid<>();
-        grid.setWidth("1000px");
         final Grid<Equipment> statGrid = new Grid<>();
-        statGrid.setWidth("1000px");
+        final Grid<Equipment> historyGrid = new Grid<>();
+        grid.setWidth("1200px");
+        statGrid.setWidth("1200px");
+        historyGrid.setWidth("1200px");
         Bagv2 b = new Bagv2();
         setSizeFull();
 
@@ -73,16 +75,21 @@ public class MainView extends VerticalLayout  {
                 //System.out.println(bag);
                 if(bag.length()>1){
                     b.loadInventory(bag);
-                    
-                    ArrayList<Equipment> tmp = b.convertArray2List(b.wInventory,b.strInventory,"W");
-                    
-                    
-                    // tmp.addAll(b.getH());
-                    // tmp.addAll(b.getCh());
-                    // tmp.addAll(b.getN());
-                    // tmp.addAll(b.getR());
-                    // tmp.addAll(b.getB());
+                    b.convertArray2List(b.wInventory,b.strInventory,"W");
+                    b.convertArray2List(b.hInventory,b.strInventory,"H");
+                    b.convertArray2List(b.chInventory,b.strInventory,"Ch");
+                    b.convertArray2List(b.nInventory,b.strInventory,"N");
+                    b.convertArray2List(b.rInventory,b.strInventory,"R");
+                    b.convertArray2List(b.bInventory,b.strInventory,"B");
 
+                    ArrayList<Equipment> tmp = b.getWlist();
+                    
+                    tmp.addAll( b.getHlist());
+                    tmp.addAll( b.getChlist());
+                    tmp.addAll( b.getNlist());
+                    tmp.addAll( b.getRlist());
+                    tmp.addAll( b.getBlist());
+                    
                     grid.setItems(tmp);
                 }
                 
@@ -132,30 +139,69 @@ public class MainView extends VerticalLayout  {
         statGrid.addColumn(Equipment::getEffres).setHeader("effect resis");
         statGrid.addColumn(Equipment::getSet).setHeader("set");
         add(statGrid);
-        // Button click listeners can be defined as lambda expressions
-        // Button button = new Button("Run Calcs",
-        // e -> {
-        //     Sets s = b.superCalcs(b.getW(), b.getH(), b.getCh(), b.getN(), b.getR(), b.getB());
-        //     ArrayList<Equipment> tmp = new ArrayList<>();
-        //     tmp.add(s.getWeapon());
-        //     tmp.add(s.getHead());
-        //     tmp.add(s.getChest());
-        //     tmp.add(s.getNeck());
-        //     tmp.add(s.getRing());
-        //     tmp.add(s.getBoot());
-            
-            
-        //     statGrid.setItems(tmp);
-            
-            
-        //     }
-        
-        // );
 
+        historyGrid.addColumn(Equipment::getId).setHeader("id");
+        historyGrid.addColumn(Equipment::getF_atk).setHeader("flat atk");
+        historyGrid.addColumn(Equipment::getF_def).setHeader("flat def");
+        historyGrid.addColumn(Equipment::getF_hp).setHeader("flat hp");
+        historyGrid.addColumn(Equipment::getP_atk).setHeader("% atk");
+        historyGrid.addColumn(Equipment::getP_def).setHeader("% def");
+        historyGrid.addColumn(Equipment::getP_hp).setHeader("% hp");
+        historyGrid.addColumn(Equipment::getC).setHeader("crit chance");
+        historyGrid.addColumn(Equipment::getCd).setHeader("crit dmg");
+        historyGrid.addColumn(Equipment::getSpd).setHeader("speed");
+        historyGrid.addColumn(Equipment::getEff).setHeader("effect");
+        historyGrid.addColumn(Equipment::getEffres).setHeader("effect resis");
+        historyGrid.addColumn(Equipment::getSet).setHeader("set");
+        add(historyGrid);
+        
+        //Button click listeners can be defined as lambda expressions
+        Button button = new Button("Run Calcs",
+        e -> {
+            Sets s = b.runCalcs();
+            ArrayList<Equipment> tmp = new ArrayList<>();
+            tmp.add(s.getWeapon());
+            tmp.add(s.getHead());
+            tmp.add(s.getChest());
+            tmp.add(s.getNeck());
+            tmp.add(s.getRing());
+            tmp.add(s.getBoot());
+            
+            
+            statGrid.setItems(tmp);
+            
+            
+            }
+        
+         );
+         button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+
+         Button xlsxButton = new Button("Xlsx Export",
+         e -> {
+             //ExportXLSXv2 xlsx = new ExportXLSXv2(b.history);
+             //xlsx.loadData();
+             ArrayList<Equipment> tmp = new ArrayList<>();
+             for(int i=0;i<b.history.size();i++){
+                Sets set = b.history.get(i);
+
+                tmp.add(set.getWeapon());
+                tmp.add( set.getHead());
+                tmp.add( set.getChest());
+                tmp.add( set.getNeck());
+                tmp.add( set.getRing());
+                tmp.add( set.getBoot());
+             }
+             
+             
+             historyGrid.setItems(tmp);
+
+             }
+         
+          );
         // Theme variants give you predefined extra styles for components.
         // Example: Primary button has a more prominent look.
-        // button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        // add(button);
+         
+         add(button,xlsxButton);
 
         
 
