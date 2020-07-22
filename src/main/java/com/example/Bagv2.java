@@ -16,8 +16,7 @@ public class Bagv2 {
     int bCntr = 0;
     int strCntr = 0;
     
-    double heroatk =1;
-
+    
     ArrayList<Equipment> wlist = new ArrayList<>();
     ArrayList<Equipment> hlist = new ArrayList<>();
     ArrayList<Equipment> chlist = new ArrayList<>();
@@ -26,14 +25,29 @@ public class Bagv2 {
     ArrayList<Equipment> blist = new ArrayList<>();
 
     ArrayList<Sets> history = new ArrayList<>();
+    ArrayList<Hero> heros = new ArrayList<>();
+
     Sets set = new Sets();
     public Bagv2(){
 
     }
+
+    public boolean isAtkSet(int i, int j, int k, int l, int m, int n){
+        int setw = (strInventory[i][2].equals("atk"))? 1 : 0;
+        int seth = (strInventory[wCntr+j][2].equals("atk"))? 1 : 0;
+        int setch = (strInventory[wCntr+hCntr+k][2].equals("atk"))? 1 : 0;
+        int setn = (strInventory[wCntr+hCntr+chCntr+l][2].equals("atk"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][2].equals("atk"))? 1 : 0;
+        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][2].equals("atk"))? 1 : 0;
+        return setw+seth+setch+setn+setr+setb>=4;
+
+    }
  //int pk int f_atk = 0, f_def = 0, f_hp = 0, p_atk = 0, p_def = 0, p_hp = 0, c = 0, cd = 0, spd = 0, eff = 0, effres = 0;
-    public Sets runCalcs(){
+    public Sets runCalcs(Hero hero){
         int maxI=0,maxJ=0,maxK=0,maxL=0,maxM=0,maxN=0;
         double maxAtk = 0;
+        double heroatk = hero.getAtk();
+        double atk=0;
 
         for(int i=0;i<wCntr;i++){
             for(int j=0;j<hCntr;j++){
@@ -41,10 +55,21 @@ public class Bagv2 {
                     for(int l=0;l<nCntr;l++){
                         for(int m=0;m<rCntr;m++){
                             for(int n=0; n<bCntr;n++){
-                                double atk = wInventory[i][1]+hInventory[j][1]+chInventory[k][1]
-                                            +nInventory[l][1]+rInventory[m][1]+bInventory[n][1]
-                                        + heroatk*(1+(wInventory[i][5]+hInventory[j][5]+chInventory[k][5]
-                                            +nInventory[l][5]+rInventory[m][5]+bInventory[n][5]));
+                                
+                                if(isAtkSet(i,j,k,l,m,n)){
+                                    atk = wInventory[i][1]+hInventory[j][1]+chInventory[k][1]
+                                        +nInventory[l][1]+rInventory[m][1]+bInventory[n][1]
+                                        + heroatk*(1+(double)(35+wInventory[i][4]+hInventory[j][4]+chInventory[k][4]
+                                        +nInventory[l][4]+rInventory[m][4]+bInventory[n][4])/100);
+                                }
+                                else{
+                                    atk = wInventory[i][1]+hInventory[j][1]+chInventory[k][1]
+                                        +nInventory[l][1]+rInventory[m][1]+bInventory[n][1]
+                                        + heroatk*(1+(double)(wInventory[i][4]+hInventory[j][4]+chInventory[k][4]
+                                        +nInventory[l][4]+rInventory[m][4]+bInventory[n][4])/100);
+                                }
+
+
                                 if(maxAtk<atk){
                                     maxAtk = atk;
                                     maxI = wInventory[i][0];
@@ -63,6 +88,204 @@ public class Bagv2 {
         return outputSets(maxI, maxJ, maxK, maxL, maxM, maxN);
         
     }
+
+    public ArrayList<Hero> calcHero(Hero hero, ArrayList<Equipment> sets){
+        ArrayList<Hero> h = new ArrayList<>();
+        double hatk=0,hdef=0,hhp=0,hspd=0,hcc=0,hcd=0,he=0,her=0;
+
+        int setw = (sets.get(0).getSet().equals("atk"))? 1 : 0;
+        int seth = (sets.get(1).getSet().equals("atk"))? 1 : 0;
+        int setch = (sets.get(2).getSet().equals("atk"))? 1 : 0;
+        int setn = (sets.get(3).getSet().equals("atk"))? 1 : 0;
+        int setr = (sets.get(4).getSet().equals("atk"))? 1 : 0;
+        int setb = (sets.get(5).getSet().equals("atk"))? 1 : 0;
+
+        if(setw+seth+setch+setn+setr+setb>=4){
+            hatk = hero.getAtk()*(1+(double)(35+sets.get(0).getP_atk()+sets.get(1).getP_atk()+sets.get(2).getP_atk()
+            + sets.get(3).getP_atk()+sets.get(4).getP_atk()+sets.get(5).getP_atk())/100)
+            +(sets.get(0).getF_atk()+sets.get(1).getF_atk()+sets.get(2).getF_atk()
+            + sets.get(3).getF_atk()+sets.get(4).getF_atk()+sets.get(5).getF_atk())
+            ;
+        }
+        else{
+            hatk = hero.getAtk()*(1+(double)(sets.get(0).getP_atk()+sets.get(1).getP_atk()+sets.get(2).getP_atk()
+            + sets.get(3).getP_atk()+sets.get(4).getP_atk()+sets.get(5).getP_atk())/100)
+            +(sets.get(0).getF_atk()+sets.get(1).getF_atk()+sets.get(2).getF_atk()
+            + sets.get(3).getF_atk()+sets.get(4).getF_atk()+sets.get(5).getF_atk())
+            ;
+
+        }
+        setw = (sets.get(0).getSet().equals("def"))? 1 : 0;
+        seth = (sets.get(1).getSet().equals("def"))? 1 : 0;
+        setch = (sets.get(2).getSet().equals("def"))? 1 : 0;
+        setn = (sets.get(3).getSet().equals("def"))? 1 : 0;
+        setr = (sets.get(4).getSet().equals("def"))? 1 : 0;
+        setb = (sets.get(5).getSet().equals("def"))? 1 : 0;
+
+        if(setw+seth+setch+setn+setr+setb==6){
+            hdef = hero.getDef()*(1+((double)(15*3+sets.get(0).getP_def()+sets.get(1).getP_def()+sets.get(2).getP_def()
+            + sets.get(3).getP_def()+sets.get(4).getP_def()+sets.get(5).getP_def())/100)
+            +sets.get(0).getF_def()+sets.get(1).getF_def()+sets.get(2).getF_def()
+            + sets.get(3).getF_def()+sets.get(4).getF_def()+sets.get(5).getF_def())
+            ;
+        }
+        else if(setw+seth+setch+setn+setr+setb>=4){
+            hdef = hero.getDef()*(1+(double)(15*2+sets.get(0).getP_def()+sets.get(1).getP_def()+sets.get(2).getP_def()
+            + sets.get(3).getP_def()+sets.get(4).getP_def()+sets.get(5).getP_def())/100)
+            +(sets.get(0).getF_def()+sets.get(1).getF_def()+sets.get(2).getF_def()
+            + sets.get(3).getF_def()+sets.get(4).getF_def()+sets.get(5).getF_def())
+            ;
+        }
+        else if (setw+seth+setch+setn+setr+setb>=2){
+            hdef = hero.getDef()*(1+(double)(15*1+sets.get(0).getP_def()+sets.get(1).getP_def()+sets.get(2).getP_def()
+            + sets.get(3).getP_def()+sets.get(4).getP_def()+sets.get(5).getP_def())/100)
+            +(sets.get(0).getF_def()+sets.get(1).getF_def()+sets.get(2).getF_def()
+            + sets.get(3).getF_def()+sets.get(4).getF_def()+sets.get(5).getF_def())
+            ;
+        }
+        else{
+            hdef = hero.getDef()*(1+(double)(sets.get(0).getP_def()+sets.get(1).getP_def()+sets.get(2).getP_def()
+            + sets.get(3).getP_def()+sets.get(4).getP_def()+sets.get(5).getP_def())/100)
+            +(sets.get(0).getF_def()+sets.get(1).getF_def()+sets.get(2).getF_def()
+            + sets.get(3).getF_def()+sets.get(4).getF_def()+sets.get(5).getF_def())
+            ;
+            
+        }
+        
+        setw = (sets.get(0).getSet().equals("hp"))? 1 : 0;
+        seth = (sets.get(1).getSet().equals("hp"))? 1 : 0;
+        setch = (sets.get(2).getSet().equals("hp"))? 1 : 0;
+        setn = (sets.get(3).getSet().equals("hp"))? 1 : 0;
+        setr = (sets.get(4).getSet().equals("hp"))? 1 : 0;
+        setb = (sets.get(5).getSet().equals("hp"))? 1 : 0;
+        if(setw+seth+setch+setn+setr+setb==6){
+            hhp = hero.getHp()*(1+(double)(1+sets.get(0).getP_hp()+sets.get(1).getP_hp()+sets.get(2).getP_hp()
+                                            + sets.get(3).getP_hp()+sets.get(4).getP_hp()+sets.get(5).getP_hp())/100)
+                                            +(15*3+sets.get(0).getF_hp()+sets.get(1).getF_hp()+sets.get(2).getF_hp()
+                                            + sets.get(3).getF_hp()+sets.get(4).getF_hp()+sets.get(5).getF_hp())
+            ;
+        }
+        else if(setw+seth+setch+setn+setr+setb>=4){
+            hhp = hero.getHp()*(1+(double)(1+sets.get(0).getP_hp()+sets.get(1).getP_hp()+sets.get(2).getP_hp()
+                                            + sets.get(3).getP_hp()+sets.get(4).getP_hp()+sets.get(5).getP_hp())/100)
+                                            +(15*2+sets.get(0).getF_hp()+sets.get(1).getF_hp()+sets.get(2).getF_hp()
+                                            + sets.get(3).getF_hp()+sets.get(4).getF_hp()+sets.get(5).getF_hp())
+            ;
+        }
+        if(setw+seth+setch+setn+setr+setb>=2){
+            hhp = hero.getHp()*(1+(double)(1+sets.get(0).getP_hp()+sets.get(1).getP_hp()+sets.get(2).getP_hp()
+                                            + sets.get(3).getP_hp()+sets.get(4).getP_hp()+sets.get(5).getP_hp())/100)
+                                            +(15*1+sets.get(0).getF_hp()+sets.get(1).getF_hp()+sets.get(2).getF_hp()
+                                            + sets.get(3).getF_hp()+sets.get(4).getF_hp()+sets.get(5).getF_hp())
+            ;
+        }
+        else{
+            hhp = hero.getHp()*(1+(double)(1+sets.get(0).getP_hp()+sets.get(1).getP_hp()+sets.get(2).getP_hp()
+            + sets.get(3).getP_hp()+sets.get(4).getP_hp()+sets.get(5).getP_hp())/100)
+            +(sets.get(0).getF_hp()+sets.get(1).getF_hp()+sets.get(2).getF_hp()
+            + sets.get(3).getF_hp()+sets.get(4).getF_hp()+sets.get(5).getF_hp())
+            ;
+
+        }
+        
+        setw = (sets.get(0).getSet().equals("spd"))? 1 : 0;
+        seth = (sets.get(1).getSet().equals("spd"))? 1 : 0;
+        setch = (sets.get(2).getSet().equals("spd"))? 1 : 0;
+        setn = (sets.get(3).getSet().equals("spd"))? 1 : 0;
+        setr = (sets.get(4).getSet().equals("spd"))? 1 : 0;
+        setb = (sets.get(5).getSet().equals("spd"))? 1 : 0;
+
+        if(setw+seth+setch+setn+setr+setb>=4){
+            hspd = 1.25*hero.getSpd()+(sets.get(0).getSpd()+sets.get(1).getSpd()+sets.get(2).getSpd()
+            + sets.get(3).getSpd()+sets.get(4).getSpd()+sets.get(5).getSpd())
+            ;
+        }
+        else{
+            hspd = hero.getSpd()+(sets.get(0).getSpd()+sets.get(1).getSpd()+sets.get(2).getSpd()
+                                            + sets.get(3).getSpd()+sets.get(4).getSpd()+sets.get(5).getSpd())
+            ;
+        }
+        setw = (sets.get(0).getSet().equals("crit"))? 1 : 0;
+        seth = (sets.get(1).getSet().equals("crit"))? 1 : 0;
+        setch = (sets.get(2).getSet().equals("crit"))? 1 : 0;
+        setn = (sets.get(3).getSet().equals("crit"))? 1 : 0;
+        setr = (sets.get(4).getSet().equals("crit"))? 1 : 0;
+        setb = (sets.get(5).getSet().equals("crit"))? 1 : 0;
+        if(setw+seth+setch+setn+setr+setb==6){
+            hcc = hero.getCrit()+(12*3+sets.get(0).getC()+sets.get(1).getC()+sets.get(2).getC()
+            + sets.get(3).getC()+sets.get(4).getC()+sets.get(5).getC())
+            ;
+        }
+        else if(setw+seth+setch+setn+setr+setb>=4){
+            hcc = hero.getCrit()+(12*2+sets.get(0).getC()+sets.get(1).getC()+sets.get(2).getC()
+            + sets.get(3).getC()+sets.get(4).getC()+sets.get(5).getC())
+            ;
+        }
+        else if(setw+seth+setch+setn+setr+setb>=4){
+            hcc = hero.getCrit()+(12*1+sets.get(0).getC()+sets.get(1).getC()+sets.get(2).getC()
+            + sets.get(3).getC()+sets.get(4).getC()+sets.get(5).getC())
+            ;
+        }
+        else{
+            hcc = hero.getCrit()+(sets.get(0).getC()+sets.get(1).getC()+sets.get(2).getC()
+            + sets.get(3).getC()+sets.get(4).getC()+sets.get(5).getC())
+            ;
+
+        }
+        setw = (sets.get(0).getSet().equals("des"))? 1 : 0;
+        seth = (sets.get(1).getSet().equals("des"))? 1 : 0;
+        setch = (sets.get(2).getSet().equals("des"))? 1 : 0;
+        setn = (sets.get(3).getSet().equals("des"))? 1 : 0;
+        setr = (sets.get(4).getSet().equals("des"))? 1 : 0;
+        setb = (sets.get(5).getSet().equals("des"))? 1 : 0;
+        
+        if(setw+seth+setch+setn+setr+setb>=4){
+            hcd = hero.getCritdmg() +(40+sets.get(0).getCd()+sets.get(1).getCd()+sets.get(2).getCd()
+                                            + sets.get(3).getCd()+sets.get(4).getCd()+sets.get(5).getCd())
+            ;
+        }
+        else {
+            hcd = hero.getCritdmg() +(sets.get(0).getCd()+sets.get(1).getCd()+sets.get(2).getCd()
+                                            + sets.get(3).getCd()+sets.get(4).getCd()+sets.get(5).getCd())
+            ;
+        }
+        setw = (sets.get(0).getSet().equals("eff"))? 1 : 0;
+        seth = (sets.get(1).getSet().equals("eff"))? 1 : 0;
+        setch = (sets.get(2).getSet().equals("eff"))? 1 : 0;
+        setn = (sets.get(3).getSet().equals("eff"))? 1 : 0;
+        setr = (sets.get(4).getSet().equals("eff"))? 1 : 0;
+        setb = (sets.get(5).getSet().equals("eff"))? 1 : 0;
+        if(setw+seth+setch+setn+setr+setb==6){
+            he = hero.getEff()+(20*3+sets.get(0).getEff()+sets.get(1).getEff()+sets.get(2).getEff()
+                                            + sets.get(3).getEff()+sets.get(4).getEff()+sets.get(5).getEff())
+            ;
+        }
+        else if(setw+seth+setch+setn+setr+setb>=4){
+            he = hero.getEff()+(20*2+sets.get(0).getEff()+sets.get(1).getEff()+sets.get(2).getEff()
+                                            + sets.get(3).getEff()+sets.get(4).getEff()+sets.get(5).getEff())
+            ;
+        }
+        else if(setw+seth+setch+setn+setr+setb>=2){
+            he = hero.getEff()+(20*1+sets.get(0).getEff()+sets.get(1).getEff()+sets.get(2).getEff()
+                                            + sets.get(3).getEff()+sets.get(4).getEff()+sets.get(5).getEff())
+            ;
+        }
+        else{
+            he = hero.getEff()+(sets.get(0).getEff()+sets.get(1).getEff()+sets.get(2).getEff()
+            + sets.get(3).getEff()+sets.get(4).getEff()+sets.get(5).getEff())
+            ;
+        }
+        
+        her = hero.getEffres()+(sets.get(0).getEffres()+sets.get(1).getEffres()+sets.get(2).getEffres()
+                                            + sets.get(3).getEffres()+sets.get(4).getEffres()+sets.get(5).getEffres())
+                            
+        ;
+
+        h.add(new Hero(hero.getName(),(int)(hatk),(int)(hdef),(int)(hhp),(int)(hspd),(int)(hcc),(int)(hcd),(int)(he),(int)(her)));
+        
+        return h;
+    }
+
 
     public Sets outputSets(int i, int j, int k, int l, int m, int n){
         set = new Sets(getWlist().get(i),getHlist().get(j),getChlist().get(k),
@@ -176,9 +399,18 @@ public class Bagv2 {
                     heroNames[i]=txt;
                 } 
                 else {
-                    heroStats[i][j]=Integer.parseInt(txt);
+                    heroStats[i][j-1]=Integer.parseInt(txt);
                 }
             }
+        }
+    }
+    //String name,int atk, int def, int hp, int spd, int crit, int critdmg, int eff, int effres
+    public synchronized void convertHeroArr2List(){
+        for(int i=0;i<heroNames.length;i++){
+            heros.add(new Hero(heroNames[i],heroStats[i][0],heroStats[i][1],
+                heroStats[i][2],heroStats[i][3],heroStats[i][4],
+                heroStats[i][5],heroStats[i][6],heroStats[i][7]
+                ));
         }
     }
 
@@ -500,6 +732,14 @@ public class Bagv2 {
 
     public void setBlist(ArrayList<Equipment> blist) {
         this.blist = blist;
+    }
+
+    public ArrayList<Hero> getHeros() {
+        return this.heros;
+    }
+
+    public void setHeros(ArrayList<Hero> heros) {
+        this.heros = heros;
     }
     
 }

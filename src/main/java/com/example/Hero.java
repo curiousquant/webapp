@@ -2,10 +2,9 @@ package com.example;
 
 public class Hero {
     String name;
-    int atk, def, hp, spd, crit, critdmg, eff, effres;
+    double atk, def, hp, spd, crit, critdmg, eff, effres;
     double cv;
-    Handler h;
-    public Hero(String name,int atk, int def, int hp, int spd, int crit, int critdmg, int eff, int effres){
+    public Hero(String name,double atk, double def, double hp, double spd, double crit, double critdmg, double eff, double effres){
         this.name = name;
         this.atk = atk;
         this.def = def;
@@ -15,6 +14,9 @@ public class Hero {
         this.critdmg = critdmg;
         this.eff = eff;
         this.effres = effres;
+    }
+    public Hero(){
+
     }
 
     public String getName() {
@@ -25,7 +27,7 @@ public class Hero {
         this.name = name;
     }
 
-    public int getAtk() {
+    public double getAtk() {
         return this.atk;
     }
 
@@ -33,7 +35,7 @@ public class Hero {
         this.atk = atk;
     }
 
-    public int getDef() {
+    public double getDef() {
         return this.def;
     }
 
@@ -41,7 +43,7 @@ public class Hero {
         this.def = def;
     }
 
-    public int getHp() {
+    public double getHp() {
         return this.hp;
     }
 
@@ -49,7 +51,7 @@ public class Hero {
         this.hp = hp;
     }
 
-    public int getSpd() {
+    public double getSpd() {
         return this.spd;
     }
 
@@ -57,7 +59,7 @@ public class Hero {
         this.spd = spd;
     }
 
-    public int getCrit() {
+    public double getCrit() {
         return this.crit;
     }
 
@@ -65,7 +67,7 @@ public class Hero {
         this.crit = crit;
     }
 
-    public int getCritdmg() {
+    public double getCritdmg() {
         return this.critdmg;
     }
 
@@ -73,7 +75,7 @@ public class Hero {
         this.critdmg = critdmg;
     }
 
-    public int getEff() {
+    public double getEff() {
         return this.eff;
     }
 
@@ -81,20 +83,12 @@ public class Hero {
         this.eff = eff;
     }
 
-    public int getEffres() {
+    public double getEffres() {
         return this.effres;
     }
 
     public void setEffres(int effres) {
         this.effres = effres;
-    }
-
-    public Handler getH() {
-        return this.h;
-    }
-
-    public void setH(Handler h) {
-        this.h = h;
     }
 
 
