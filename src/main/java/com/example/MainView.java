@@ -110,6 +110,58 @@ public class MainView extends VerticalLayout  {
         maxEffLabel.setLabel("Minimum Eff Threshold");
         maxEffLabel.setValue("0");
 
+        
+        try{
+            File initialFile = new File("bag.txt");
+            InputStream targetStream = new FileInputStream(initialFile);
+            File heroFile = new File("heroBag.txt");
+            InputStream targetHeroStream = new FileInputStream(heroFile);
+            String bag = IOUtils.toString(targetStream, StandardCharsets.UTF_8);
+            //System.out.println(bag);
+            if(bag.length()>1){
+                b.wlist.clear();
+                b.hlist.clear();
+                b.chlist.clear();
+                b.nlist.clear();
+                b.rlist.clear();
+                b.blist.clear();
+                b.history.clear();
+
+                b.loadInventory(bag);
+                b.convertArray2List(b.wInventory,b.strInventory,"W");b.convertArray2List(b.hInventory,b.strInventory,"H");
+                b.convertArray2List(b.chInventory,b.strInventory,"Ch");b.convertArray2List(b.nInventory,b.strInventory,"N");
+                b.convertArray2List(b.rInventory,b.strInventory,"R");b.convertArray2List(b.bInventory,b.strInventory,"B");
+
+                ArrayList<Equipment> tmp = b.getWlist();
+                
+                tmp.addAll( b.getHlist());tmp.addAll( b.getChlist());
+                tmp.addAll( b.getNlist());tmp.addAll( b.getRlist());
+                tmp.addAll( b.getBlist());
+                
+                //grid.setItems(tmp);
+            }
+            
+            String heroBag = IOUtils.toString(targetHeroStream, StandardCharsets.UTF_8);
+            if(heroBag.length()>1){
+                listBox.setValue(null);
+                b.heros.clear();
+                b.loadHeros(heroBag);
+                b.convertHeroArr2List();
+                //heroGrid.setItems(b.heros);
+                String[] hnames = new String[b.heros.size()];
+                for(int i=0;i<b.heros.size();i++){
+                    hnames[i] = b.heros.get(i).getName();
+                }
+                
+                listBox.setItems(hnames);
+            }
+        }
+        catch(Exception e1){
+            e1.printStackTrace();
+        }
+
+
+
         listBox.addValueChangeListener(event -> {
             //if(isActive){
                 
@@ -125,7 +177,8 @@ public class MainView extends VerticalLayout  {
                 }
                 
         });
-
+        
+        
         MultiFileMemoryBuffer multiFileMemoryBuffer = new MultiFileMemoryBuffer();
         final Upload upload = new Upload(multiFileMemoryBuffer);
         upload.addFinishedListener(e -> {
@@ -145,7 +198,7 @@ public class MainView extends VerticalLayout  {
                     b.rlist.clear();
                     b.blist.clear();
                     b.history.clear();
-                    
+
                     b.loadInventory(bag);
                     b.convertArray2List(b.wInventory,b.strInventory,"W");b.convertArray2List(b.hInventory,b.strInventory,"H");
                     b.convertArray2List(b.chInventory,b.strInventory,"Ch");b.convertArray2List(b.nInventory,b.strInventory,"N");
