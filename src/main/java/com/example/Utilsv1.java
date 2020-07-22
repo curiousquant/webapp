@@ -3,7 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Utils {
+public class Utilsv1 {
 
 	public static String loadFileAsString(String path) {
 		StringBuilder builder = new StringBuilder();

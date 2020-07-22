@@ -3,6 +3,7 @@ package com.example;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.example.Utilsv1;
 
 public class Bagv2 {
     String[] heroNames;
@@ -33,22 +34,97 @@ public class Bagv2 {
     }
 
     public boolean isAtkSet(int i, int j, int k, int l, int m, int n){
-        int setw = (strInventory[i][2].equals("atk"))? 1 : 0;
-        int seth = (strInventory[wCntr+j][2].equals("atk"))? 1 : 0;
-        int setch = (strInventory[wCntr+hCntr+k][2].equals("atk"))? 1 : 0;
-        int setn = (strInventory[wCntr+hCntr+chCntr+l][2].equals("atk"))? 1 : 0;
-        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][2].equals("atk"))? 1 : 0;
-        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][2].equals("atk"))? 1 : 0;
+        int setw = (strInventory[i][1].equals("atk"))? 1 : 0;
+        int seth = (strInventory[wCntr+j][1].equals("atk"))? 1 : 0;
+        int setch = (strInventory[wCntr+hCntr+k][1].equals("atk"))? 1 : 0;
+        int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("atk"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("atk"))? 1 : 0;
+        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("atk"))? 1 : 0;
         return setw+seth+setch+setn+setr+setb>=4;
 
     }
- //int pk int f_atk = 0, f_def = 0, f_hp = 0, p_atk = 0, p_def = 0, p_hp = 0, c = 0, cd = 0, spd = 0, eff = 0, effres = 0;
-    public Sets runCalcs(Hero hero){
-        int maxI=0,maxJ=0,maxK=0,maxL=0,maxM=0,maxN=0;
-        double maxAtk = 0;
-        double heroatk = hero.getAtk();
-        double atk=0;
+    public int isDefSet(int i, int j, int k, int l, int m, int n){
+        int setw = (strInventory[i][1].equals("def"))? 1 : 0;
+        int seth = (strInventory[wCntr+j][1].equals("def"))? 1 : 0;
+        int setch = (strInventory[wCntr+hCntr+k][1].equals("def"))? 1 : 0;
+        int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("def"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("def"))? 1 : 0;
+        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("def"))? 1 : 0;
+        return setw+seth+setch+setn+setr+setb;
 
+    }
+    public int isHpSet(int i, int j, int k, int l, int m, int n){
+        int setw = (strInventory[i][1].equals("hp"))? 1 : 0;
+        int seth = (strInventory[wCntr+j][1].equals("hp"))? 1 : 0;
+        int setch = (strInventory[wCntr+hCntr+k][1].equals("hp"))? 1 : 0;
+        int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("hp"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("hp"))? 1 : 0;
+        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("hp"))? 1 : 0;
+        return setw+seth+setch+setn+setr+setb;
+
+    }
+    public int isCSet(int i, int j, int k, int l, int m, int n){
+        int setw = (strInventory[i][1].equals("crit"))? 1 : 0;
+        int seth = (strInventory[wCntr+j][1].equals("crit"))? 1 : 0;
+        int setch = (strInventory[wCntr+hCntr+k][1].equals("crit"))? 1 : 0;
+        int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("crit"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("crit"))? 1 : 0;
+        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("crit"))? 1 : 0;
+        return setw+seth+setch+setn+setr+setb;
+
+    }
+    public int isCdSet(int i, int j, int k, int l, int m, int n){
+        int setw = (strInventory[i][1].equals("dest"))? 1 : 0;
+        int seth = (strInventory[wCntr+j][1].equals("dest"))? 1 : 0;
+        int setch = (strInventory[wCntr+hCntr+k][1].equals("dest"))? 1 : 0;
+        int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("dest"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("dest"))? 1 : 0;
+        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("dest"))? 1 : 0;
+        return setw+seth+setch+setn+setr+setb;
+
+    }
+    public int isSpdSet(int i, int j, int k, int l, int m, int n){
+        int setw = (strInventory[i][1].equals("spd"))? 1 : 0;
+        int seth = (strInventory[wCntr+j][1].equals("spd"))? 1 : 0;
+        int setch = (strInventory[wCntr+hCntr+k][1].equals("spd"))? 1 : 0;
+        int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("spd"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("spd"))? 1 : 0;
+        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("spd"))? 1 : 0;
+        return setw+seth+setch+setn+setr+setb;
+
+    }
+
+    public int isEffSet(int i, int j, int k, int l, int m, int n){
+        int setw = (strInventory[i][1].equals("eff"))? 1 : 0;
+        int seth = (strInventory[wCntr+j][1].equals("eff"))? 1 : 0;
+        int setch = (strInventory[wCntr+hCntr+k][1].equals("eff"))? 1 : 0;
+        int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("eff"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("eff"))? 1 : 0;
+        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("eff"))? 1 : 0;
+        return setw+seth+setch+setn+setr+setb;
+
+    }
+
+ //int pk int f_atk = 0, f_def = 0, f_hp = 0, p_atk = 0, p_def = 0, p_hp = 0, c = 0, cd = 0, spd = 0, eff = 0, effres = 0;
+    public Sets runCalcs(Hero hero,boolean isAtk,boolean isDef, boolean isHp, 
+                            boolean isCrit, boolean isCd, boolean isSpd,boolean isEff, boolean isSpecial,
+                            double maxAtk,double maxDef,double maxHp, double maxC,
+                            double maxCd, double maxSpd, double maxEff){
+        int maxI=0,maxJ=0,maxK=0,maxL=0,maxM=0,maxN=0;
+        //double maxAtk = 0,maxDef = 0,maxHp = 0,maxC = 0,maxCd = 0,maxEff = 0,maxSpd = 0;
+        double heroatk = hero.getAtk(),herodef = hero.getDef(),herohp = hero.getHp(),
+        herocrit = hero.getCrit(),heroCd = hero.getCritdmg(),heroSpd =hero.getSpd(),heroEff = hero.getEff();
+        ;
+        double atk=0;
+        double def=0;
+        double hp=0;
+        double crit = 0;
+        double cd = 0;
+        double eff = 0;
+        double spd = 0;
+        double dps = 0;
+        double maxDps = 0;
+        
         for(int i=0;i<wCntr;i++){
             for(int j=0;j<hCntr;j++){
                 for(int k=0;k<chCntr;k++){
@@ -56,28 +132,220 @@ public class Bagv2 {
                         for(int m=0;m<rCntr;m++){
                             for(int n=0; n<bCntr;n++){
                                 
-                                if(isAtkSet(i,j,k,l,m,n)){
-                                    atk = wInventory[i][1]+hInventory[j][1]+chInventory[k][1]
-                                        +nInventory[l][1]+rInventory[m][1]+bInventory[n][1]
-                                        + heroatk*(1+(double)(35+wInventory[i][4]+hInventory[j][4]+chInventory[k][4]
-                                        +nInventory[l][4]+rInventory[m][4]+bInventory[n][4])/100);
+
+                                if(isAtk||maxAtk!=0){
+                                    if(isAtkSet(i,j,k,l,m,n)){
+                                        atk = wInventory[i][1]+hInventory[j][1]+chInventory[k][1]
+                                            +nInventory[l][1]+rInventory[m][1]+bInventory[n][1]
+                                            + heroatk*(1+(double)(35.0+wInventory[i][4]+hInventory[j][4]+chInventory[k][4]
+                                            +nInventory[l][4]+rInventory[m][4]+bInventory[n][4])/100);
+                                    }
+                                    else{
+                                        atk = wInventory[i][1]+hInventory[j][1]+chInventory[k][1]
+                                            +nInventory[l][1]+rInventory[m][1]+bInventory[n][1]
+                                            + heroatk*(1+(double)(wInventory[i][4]+hInventory[j][4]+chInventory[k][4]
+                                            +nInventory[l][4]+rInventory[m][4]+bInventory[n][4])/100);
+                                    }
                                 }
-                                else{
-                                    atk = wInventory[i][1]+hInventory[j][1]+chInventory[k][1]
-                                        +nInventory[l][1]+rInventory[m][1]+bInventory[n][1]
-                                        + heroatk*(1+(double)(wInventory[i][4]+hInventory[j][4]+chInventory[k][4]
-                                        +nInventory[l][4]+rInventory[m][4]+bInventory[n][4])/100);
+                                if(isSpecial){
+                                    if(isAtkSet(i,j,k,l,m,n)){
+                                        atk = wInventory[i][1]+hInventory[j][1]+chInventory[k][1]
+                                            +nInventory[l][1]+rInventory[m][1]+bInventory[n][1]
+                                            + heroatk*(1+(double)(35+wInventory[i][4]+hInventory[j][4]+chInventory[k][4]
+                                            +nInventory[l][4]+rInventory[m][4]+bInventory[n][4])/100);
+                                            
+                                    }
+                                    else{
+                                        atk = wInventory[i][1]+hInventory[j][1]+chInventory[k][1]
+                                            +nInventory[l][1]+rInventory[m][1]+bInventory[n][1]
+                                            + heroatk*(1+(double)(wInventory[i][4]+hInventory[j][4]+chInventory[k][4]
+                                            +nInventory[l][4]+rInventory[m][4]+bInventory[n][4])/100);
+                                    }
+
+                                    if(isCSet(i,j,k,l,m,n)==6){
+                                        crit = herocrit+(double)(12*3+wInventory[i][7]+hInventory[j][7]+chInventory[k][7]
+                                        +nInventory[l][7]+rInventory[m][7]+bInventory[n][7]);
+                                    }
+                                    else if(isCSet(i,j,k,l,m,n)>=4){
+                                        crit = herocrit+(double)(12*2+wInventory[i][7]+hInventory[j][7]+chInventory[k][7]
+                                        +nInventory[l][7]+rInventory[m][7]+bInventory[n][7]);
+                                    }
+                                    else if(isCSet(i,j,k,l,m,n)>=2){
+                                        crit = herocrit+(double)(12*1+wInventory[i][7]+hInventory[j][7]+chInventory[k][7]
+                                        +nInventory[l][7]+rInventory[m][7]+bInventory[n][7]);
+                                    }
+                                    else{
+                                        crit = herocrit+(double)(wInventory[i][7]+hInventory[j][7]+chInventory[k][7]
+                                        +nInventory[l][7]+rInventory[m][7]+bInventory[n][7]);
+                                    }
+
+                                    if(isCdSet(i,j,k,l,m,n)>=4){
+                                        cd = heroCd+(double)(40+wInventory[i][8]+hInventory[j][8]+chInventory[k][8]
+                                        +nInventory[l][8]+rInventory[m][8]+bInventory[n][8]);
+                                    }
+                                    else{
+                                        cd = heroCd+(double)(wInventory[i][8]+hInventory[j][8]+chInventory[k][8]
+                                        +nInventory[l][8]+rInventory[m][8]+bInventory[n][8]);
+                                    }
+                                    if(crit>100){
+                                        crit=100;
+                                    }
+                                    dps = atk*(1-crit/100)+atk*(cd/100)*crit/100;
+                                    
+                                }
+                                if(isDef||maxDef!=0){
+                                    if(isDefSet(i,j,k,l,m,n)==6){
+                                        def = wInventory[i][2]+hInventory[j][2]+chInventory[k][2]
+                                        +nInventory[l][2]+rInventory[m][2]+bInventory[n][2]
+                                        + herodef*(1+(double)(15*3+wInventory[i][5]+hInventory[j][5]+chInventory[k][5]
+                                        +nInventory[l][5]+rInventory[m][5]+bInventory[n][5])/100);
+                                    }
+                                    else if(isDefSet(i,j,k,l,m,n)>=4){
+                                        def = wInventory[i][2]+hInventory[j][2]+chInventory[k][2]
+                                        +nInventory[l][2]+rInventory[m][2]+bInventory[n][2]
+                                        + herodef*(1+(double)15*2+(wInventory[i][5]+hInventory[j][5]+chInventory[k][5]
+                                        +nInventory[l][5]+rInventory[m][5]+bInventory[n][5])/100);
+                                    }
+                                    else if(isDefSet(i,j,k,l,m,n)>=2){
+                                        def = wInventory[i][2]+hInventory[j][2]+chInventory[k][2]
+                                        +nInventory[l][2]+rInventory[m][2]+bInventory[n][2]
+                                        + herodef*(1+(double)(15*1+wInventory[i][5]+hInventory[j][5]+chInventory[k][5]
+                                        +nInventory[l][5]+rInventory[m][5]+bInventory[n][5])/100);
+                                    }
+                                    else{
+                                        def = wInventory[i][2]+hInventory[j][2]+chInventory[k][2]
+                                        +nInventory[l][2]+rInventory[m][2]+bInventory[n][2]
+                                        + herodef*(1+(double)(15*1+wInventory[i][5]+hInventory[j][5]+chInventory[k][5]
+                                        +nInventory[l][5]+rInventory[m][5]+bInventory[n][5])/100);
+                                    }
+                                }
+                                
+                                if(isHp||maxHp!=0){
+                                    if(isHpSet(i,j,k,l,m,n)==6){
+                                        hp = wInventory[i][3]+hInventory[j][3]+chInventory[k][3]
+                                        +nInventory[l][3]+rInventory[m][3]+bInventory[n][3]
+                                        + herohp*(1+(double)(15*3+wInventory[i][6]+hInventory[j][6]+chInventory[k][6]
+                                        +nInventory[l][6]+rInventory[m][6]+bInventory[n][6])/100);
+                                    }
+                                    else if(isHpSet(i,j,k,l,m,n)>=4){
+                                        hp = wInventory[i][3]+hInventory[j][3]+chInventory[k][3]
+                                        +nInventory[l][3]+rInventory[m][3]+bInventory[n][3]
+                                        + herohp*(1+(double)(15*2+wInventory[i][6]+hInventory[j][6]+chInventory[k][6]
+                                        +nInventory[l][6]+rInventory[m][6]+bInventory[n][6])/100);
+                                    }
+                                    else if(isHpSet(i,j,k,l,m,n)>=2){
+                                        hp = wInventory[i][3]+hInventory[j][3]+chInventory[k][3]
+                                        +nInventory[l][3]+rInventory[m][3]+bInventory[n][3]
+                                        + herohp*(1+(double)(15*1+wInventory[i][6]+hInventory[j][6]+chInventory[k][6]
+                                        +nInventory[l][6]+rInventory[m][6]+bInventory[n][6])/100);
+                                    }
+                                    else {
+                                        hp = wInventory[i][3]+hInventory[j][3]+chInventory[k][3]
+                                        +nInventory[l][3]+rInventory[m][3]+bInventory[n][3]
+                                        + herohp*(1+(double)(wInventory[i][6]+hInventory[j][6]+chInventory[k][6]
+                                        +nInventory[l][6]+rInventory[m][6]+bInventory[n][6])/100);
+                                    }
+                                }
+                                if(isCrit||maxC!=0){
+                                    if(isCSet(i,j,k,l,m,n)==6){
+                                        crit = herocrit+(double)(12*3+wInventory[i][7]+hInventory[j][7]+chInventory[k][7]
+                                        +nInventory[l][7]+rInventory[m][7]+bInventory[n][7]);
+                                    }
+                                    else if(isCSet(i,j,k,l,m,n)>=4){
+                                        crit = herocrit+(double)(12*2+wInventory[i][7]+hInventory[j][7]+chInventory[k][7]
+                                        +nInventory[l][7]+rInventory[m][7]+bInventory[n][7]);
+                                    }
+                                    else if(isCSet(i,j,k,l,m,n)>=2){
+                                        crit = herocrit+(double)(12*1+wInventory[i][7]+hInventory[j][7]+chInventory[k][7]
+                                        +nInventory[l][7]+rInventory[m][7]+bInventory[n][7]);
+                                    }
+                                    else{
+                                        crit = herocrit+(double)(wInventory[i][7]+hInventory[j][7]+chInventory[k][7]
+                                        +nInventory[l][7]+rInventory[m][7]+bInventory[n][7]);
+                                    }
+                                }
+                                
+                                if(isCd||maxCd!=0){
+                                    if(isCdSet(i,j,k,l,m,n)>=4){
+                                        cd = heroCd+(double)(40+wInventory[i][8]+hInventory[j][8]+chInventory[k][8]
+                                        +nInventory[l][8]+rInventory[m][8]+bInventory[n][8]);
+                                    }
+                                    else{
+                                        cd = heroCd+(double)(wInventory[i][8]+hInventory[j][8]+chInventory[k][8]
+                                        +nInventory[l][8]+rInventory[m][8]+bInventory[n][8]);
+                                    }
                                 }
 
+                                if(isSpd||maxSpd!=0){
+                                    if(isSpdSet(i,j,k,l,m,n)>=4){
+                                        spd = 1.25*heroSpd+(double)(wInventory[i][9]+hInventory[j][9]+chInventory[k][9]
+                                        +nInventory[l][9]+rInventory[m][9]+bInventory[n][9]);
+                                    }
+                                    else{
+                                        spd = heroSpd+(double)(wInventory[i][9]+hInventory[j][9]+chInventory[k][9]
+                                        +nInventory[l][9]+rInventory[m][9]+bInventory[n][9]);
+                                    }
+                                }
 
-                                if(maxAtk<atk){
-                                    maxAtk = atk;
-                                    maxI = wInventory[i][0];
-                                    maxJ = hInventory[j][0];
-                                    maxK = chInventory[k][0];
-                                    maxL = nInventory[l][0];
-                                    maxM = rInventory[m][0];
-                                    maxN = bInventory[n][0];
+                                if(isEff||maxEff!=0){
+                                    if(isEffSet(i,j,k,l,m,n)==6){
+                                        eff = heroEff+(double)(20*3+wInventory[i][10]+hInventory[j][10]+chInventory[k][10]
+                                        +nInventory[l][10]+rInventory[m][10]+bInventory[n][10]);
+                                    }
+                                    else if(isEffSet(i,j,k,l,m,n)==6){
+                                        eff = heroEff+(double)(20*2+wInventory[i][10]+hInventory[j][10]+chInventory[k][10]
+                                        +nInventory[l][10]+rInventory[m][10]+bInventory[n][10]);
+                                    }
+                                    else if(isEffSet(i,j,k,l,m,n)==6){
+                                        eff = heroEff+(double)(20*1+wInventory[i][10]+hInventory[j][10]+chInventory[k][10]
+                                        +nInventory[l][10]+rInventory[m][10]+bInventory[n][10]);
+                                    }
+                                    else{
+                                        eff = heroEff+(double)(wInventory[i][10]+hInventory[j][10]+chInventory[k][10]
+                                        +nInventory[l][10]+rInventory[m][10]+bInventory[n][10]);
+                                    }
+
+                                }
+                                if(maxDps<=dps){
+                                    if(maxAtk<=atk ){
+                                        if(maxHp<=hp){
+                                            if(maxDef<=def){
+                                                if(maxC <= crit&&maxCd<=cd&&maxSpd<=spd&&maxEff<=eff){
+                                                    if(isSpecial){
+                                                        maxDps = dps;
+                                                        
+                                                    }
+                                                    if(isAtk){
+                                                        maxAtk = atk;
+                                                    }
+                                                    if(isDef){
+                                                        maxDef = def;
+                                                    }
+                                                    if(isHp){
+                                                        maxHp = hp;
+                                                    }
+                                                    if(isCrit){
+                                                        maxC = crit;
+                                                    }
+                                                    if(isCd){
+                                                        maxCd = cd;
+                                                    }
+                                                    if(isSpd){
+                                                        maxSpd = spd;
+                                                    }
+                                                    if(isEff){
+                                                        maxEff = eff;
+                                                    }
+                                                    maxI = wInventory[i][0];
+                                                    maxJ = hInventory[j][0];
+                                                    maxK = chInventory[k][0];
+                                                    maxL = nInventory[l][0];
+                                                    maxM = rInventory[m][0];
+                                                    maxN = bInventory[n][0];
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -101,7 +369,7 @@ public class Bagv2 {
         int setb = (sets.get(5).getSet().equals("atk"))? 1 : 0;
 
         if(setw+seth+setch+setn+setr+setb>=4){
-            hatk = hero.getAtk()*(1+(double)(35+sets.get(0).getP_atk()+sets.get(1).getP_atk()+sets.get(2).getP_atk()
+            hatk = hero.getAtk()*(1+(double)(35.0+sets.get(0).getP_atk()+sets.get(1).getP_atk()+sets.get(2).getP_atk()
             + sets.get(3).getP_atk()+sets.get(4).getP_atk()+sets.get(5).getP_atk())/100)
             +(sets.get(0).getF_atk()+sets.get(1).getF_atk()+sets.get(2).getF_atk()
             + sets.get(3).getF_atk()+sets.get(4).getF_atk()+sets.get(5).getF_atk())
@@ -498,8 +766,8 @@ public class Bagv2 {
 
         //int f_atk = 0, f_def = 0, f_hp = 0, p_atk = 0, p_def = 0, p_hp = 0, c = 0, cd = 0, spd = 0, eff = 0, effres = 0;
         
-        int row = Utils.parseInt(token[0]);
-        int column = Utils.parseInt(token[1]);
+        int row = Utilsv1.parseInt(token[0]);
+        int column = Utilsv1.parseInt(token[1]);
 
         wInventory = new int[wcnt][column];
         hInventory = new int[hcnt][column];
@@ -576,22 +844,22 @@ public class Bagv2 {
                     }
                     
                 } else if(type.equals("weapon")){
-                    wInventory[wCntr][y] = Utils.parseInt(txt);
+                    wInventory[wCntr][y] = Utilsv1.parseInt(txt);
                 } 
                 else if(type.equals("head")){
-                    hInventory[hCntr][y] = Utils.parseInt(txt);
+                    hInventory[hCntr][y] = Utilsv1.parseInt(txt);
                 } 
                 else if(type.equals("chest")){
-                    chInventory[chCntr][y] = Utils.parseInt(txt);
+                    chInventory[chCntr][y] = Utilsv1.parseInt(txt);
                 } 
                 else if(type.equals("neck")){
-                    nInventory[nCntr][y] = Utils.parseInt(txt);
+                    nInventory[nCntr][y] = Utilsv1.parseInt(txt);
                 } 
                 else if(type.equals("ring")){
-                    rInventory[rCntr][y] = Utils.parseInt(txt);
+                    rInventory[rCntr][y] = Utilsv1.parseInt(txt);
                 } 
                 else if(type.equals("boot")){
-                    bInventory[bCntr][y] = Utils.parseInt(txt);
+                    bInventory[bCntr][y] = Utilsv1.parseInt(txt);
                 } 
             }
         }

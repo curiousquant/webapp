@@ -1,20 +1,28 @@
 
 package com.example;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.checkbox.CheckboxGroup;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.formlayout.FormLayout.ResponsiveStep;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.InputStreamFactory;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.server.StreamResource;
 
@@ -56,6 +64,7 @@ public class MainView extends VerticalLayout  {
         final Grid<Equipment> statGrid = new Grid<>(Equipment.class);
         final Grid<Hero> heroGrid = new Grid<>(Hero.class);
         final Grid<Equipment> historyGrid = new Grid<>();
+        FormLayout nameLayout = new FormLayout();
         
         Select<String> listBox = new Select<>();
         ArrayList<Equipment>out_calc = new ArrayList<>();
@@ -67,11 +76,43 @@ public class MainView extends VerticalLayout  {
         Bagv2 b = new Bagv2();
         setSizeFull();
 
-        MultiFileMemoryBuffer multiFileMemoryBuffer = new MultiFileMemoryBuffer();
 
+        CheckboxGroup<String> checkboxGroup = new CheckboxGroup<>();
+        checkboxGroup.setLabel("Label");
+        checkboxGroup.setItems("Atk", "Def", "Hp","Crit Chance","Crit Dmg","Spd","Eff","Special DPS");
+        checkboxGroup.setValue(Collections.singleton("Atk"));
+        
+        TextField maxAtkLabel = new TextField();
+        maxAtkLabel.setLabel("Minimum Atk Threshold");
+        maxAtkLabel.setValue("0");
+
+        TextField maxDefLabel = new TextField();
+        maxDefLabel.setLabel("Minimum Def Threshold");
+        maxDefLabel.setValue("0");
+        
+        TextField maxHpLabel = new TextField();
+        maxHpLabel.setLabel("Minimum Hp Threshold");
+        maxHpLabel.setValue("0");
+        
+        TextField maxCritLabel = new TextField();
+        maxCritLabel.setLabel("Minimum Crit Chance Threshold");
+        maxCritLabel.setValue("0");
+
+        TextField maxCdLabel = new TextField();
+        maxCdLabel.setLabel("Minimum Crit Dmg Threshold");
+        maxCdLabel.setValue("0");
+
+        TextField maxSpdLabel = new TextField();
+        maxSpdLabel.setLabel("Minimum Speed Threshold");
+        maxSpdLabel.setValue("0");
+
+        TextField maxEffLabel = new TextField();
+        maxEffLabel.setLabel("Minimum Eff Threshold");
+        maxEffLabel.setValue("0");
 
         listBox.addValueChangeListener(event -> {
             //if(isActive){
+                
                 Hero selectedHero = new Hero();
                 for(int i=0;i<b.heros.size();i++){
                     if(b.heros.get(i).getName().equals(listBox.getValue())){
@@ -83,9 +124,9 @@ public class MainView extends VerticalLayout  {
                     heroGrid.setItems(h);
                 }
                 
-            //}
         });
 
+        MultiFileMemoryBuffer multiFileMemoryBuffer = new MultiFileMemoryBuffer();
         final Upload upload = new Upload(multiFileMemoryBuffer);
         upload.addFinishedListener(e -> {
             
@@ -97,6 +138,14 @@ public class MainView extends VerticalLayout  {
                 String bag = IOUtils.toString(inputStreamBag, StandardCharsets.UTF_8);
                 //System.out.println(bag);
                 if(bag.length()>1){
+                    b.wlist.clear();
+                    b.hlist.clear();
+                    b.chlist.clear();
+                    b.nlist.clear();
+                    b.rlist.clear();
+                    b.blist.clear();
+                    b.history.clear();
+                    
                     b.loadInventory(bag);
                     b.convertArray2List(b.wInventory,b.strInventory,"W");b.convertArray2List(b.hInventory,b.strInventory,"H");
                     b.convertArray2List(b.chInventory,b.strInventory,"Ch");b.convertArray2List(b.nInventory,b.strInventory,"N");
@@ -113,6 +162,8 @@ public class MainView extends VerticalLayout  {
                 
                 String heroBag = IOUtils.toString(inputStreamHero, StandardCharsets.UTF_8);
                 if(heroBag.length()>1){
+                    listBox.setValue(null);
+                    b.heros.clear();
                     b.loadHeros(heroBag);
                     b.convertHeroArr2List();
                     //heroGrid.setItems(b.heros);
@@ -147,18 +198,82 @@ public class MainView extends VerticalLayout  {
         historyGrid.addColumn(Equipment::getSet).setHeader("set").setKey("set");
         
         Anchor a = new Anchor(new StreamResource("my-excel.xlsx", Exporter.exportAsExcel(historyGrid)), "Download As Excel");
-        add(listBox,upload,statGrid,heroGrid,a);
+        
+        nameLayout.setResponsiveSteps(
+           new ResponsiveStep("25em", 1),
+           new ResponsiveStep("25em", 2),
+           new ResponsiveStep("25em", 3),
+           new ResponsiveStep("25em", 7));  
+ 
+        nameLayout.add(maxAtkLabel,maxDefLabel,maxHpLabel,
+            maxCritLabel,maxCdLabel,maxSpdLabel,maxEffLabel);
+        
+
+        Anchor bagExample = new Anchor(new StreamResource("bag.txt", new InputStreamFactory(){
+
+            @Override
+            public InputStream createInputStream() {
+                try{
+                    File initialFile = new File("bag.txt");
+                    InputStream targetStream = new FileInputStream(initialFile);
+                    return targetStream;
+                }
+                catch(Exception e){
+                    return null;
+                }
+            }
+        }),"Download bag example");
+        
+        Anchor heroExample = new Anchor(new StreamResource("hero.txt", new InputStreamFactory(){
+
+            @Override
+            public InputStream createInputStream() {
+                try{
+                    File initialFile = new File("heroBag.txt");
+                    InputStream targetStream = new FileInputStream(initialFile);
+                    return targetStream;
+                }
+                catch(Exception e){
+                    return null;
+                }
+            }
+        }),"Download heroBag example");
+        Anchor xlsxExample = new Anchor(new StreamResource("gearBag.xlsx", new InputStreamFactory(){
+
+            @Override
+            public InputStream createInputStream() {
+                try{
+                    File initialFile = new File("gearBag.xlsx");
+                    InputStream targetStream = new FileInputStream(initialFile);
+                    return targetStream;
+                }
+                catch(Exception e){
+                    return null;
+                }
+            }
+        }),"Download gearBag.xlsx example");
+        add(listBox,nameLayout,checkboxGroup,upload,statGrid,heroGrid,a,bagExample,heroExample,xlsxExample);
         
         Button button = new Button("Run Calcs",
         e -> {
                 out_calc.clear();
+                
                 Hero selectedHero = new Hero();
                 for(int i=0;i<b.heros.size();i++){
                     if(b.heros.get(i).getName().equals(listBox.getValue())){
                         selectedHero = b.heros.get(i);
                     }
                 }
-                Sets s = b.runCalcs(selectedHero);
+                System.out.println(checkboxGroup.getValue());
+                Sets s = b.runCalcs(selectedHero,checkboxGroup.getValue().contains("Atk"),
+                    checkboxGroup.getValue().contains("Def"),checkboxGroup.getValue().contains("Hp"),
+                    checkboxGroup.getValue().contains("Crit Chance"),checkboxGroup.getValue().contains("Crit Dmg"),
+                    checkboxGroup.getValue().contains("Spd"),checkboxGroup.getValue().contains("Eff"),checkboxGroup.getValue().contains("Special DPS"),
+                    Integer.parseInt(maxAtkLabel.getValue()),Integer.parseInt(maxDefLabel.getValue()),
+                    Integer.parseInt(maxHpLabel.getValue()),Integer.parseInt(maxCritLabel.getValue()),
+                    Integer.parseInt(maxCdLabel.getValue()),Integer.parseInt(maxSpdLabel.getValue()),
+                    Integer.parseInt(maxEffLabel.getValue())
+                    );
                 
                 out_calc.add(s.getWeapon()); out_calc.add(s.getHead());out_calc.add(s.getChest());
                 out_calc.add(s.getNeck());out_calc.add(s.getRing());out_calc.add(s.getBoot());
@@ -182,9 +297,7 @@ public class MainView extends VerticalLayout  {
          );
          button.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
          add(button);
-
+        
 
     }
-
-   
 }
