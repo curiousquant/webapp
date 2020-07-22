@@ -56,7 +56,7 @@ public class MainView extends VerticalLayout  {
         final Grid<Equipment> statGrid = new Grid<>(Equipment.class);
         final Grid<Hero> heroGrid = new Grid<>(Hero.class);
         final Grid<Equipment> historyGrid = new Grid<>();
-        boolean isActive = false;
+        
         Select<String> listBox = new Select<>();
         ArrayList<Equipment>out_calc = new ArrayList<>();
         
@@ -78,7 +78,7 @@ public class MainView extends VerticalLayout  {
                         selectedHero = b.heros.get(i);
                     }
                 }
-                if(selectedHero!=null&&out_calc!=null){
+                if(selectedHero!=null&&out_calc.size()>0){
                     ArrayList<Hero> h = b.calcHero(selectedHero,out_calc);
                     heroGrid.setItems(h);
                 }
