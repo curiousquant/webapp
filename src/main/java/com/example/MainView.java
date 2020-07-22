@@ -78,8 +78,11 @@ public class MainView extends VerticalLayout  {
                         selectedHero = b.heros.get(i);
                     }
                 }
-                ArrayList<Hero> h = b.calcHero(selectedHero,out_calc);
-                heroGrid.setItems(h);
+                if(selectedHero!=null&&out_calc!=null){
+                    ArrayList<Hero> h = b.calcHero(selectedHero,out_calc);
+                    heroGrid.setItems(h);
+                }
+                
             //}
         });
 
