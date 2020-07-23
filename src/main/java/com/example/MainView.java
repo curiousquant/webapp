@@ -132,8 +132,8 @@ public class MainView extends VerticalLayout  {
                 b.convertArray2List(b.chInventory,b.strInventory,"Ch");b.convertArray2List(b.nInventory,b.strInventory,"N");
                 b.convertArray2List(b.rInventory,b.strInventory,"R");b.convertArray2List(b.bInventory,b.strInventory,"B");
 
-                ArrayList<Equipment> tmp = b.getWlist();
-                
+                ArrayList<Equipment> tmp = new ArrayList<>();
+                tmp.addAll(b.getWlist());
                 tmp.addAll( b.getHlist());tmp.addAll( b.getChlist());
                 tmp.addAll( b.getNlist());tmp.addAll( b.getRlist());
                 tmp.addAll( b.getBlist());
