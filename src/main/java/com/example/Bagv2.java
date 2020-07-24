@@ -336,12 +336,25 @@ public class Bagv2 {
                                                     if(isEff){
                                                         maxEff = eff;
                                                     }
-                                                    maxI = wInventory[i][0];
-                                                    maxJ = hInventory[j][0];
-                                                    maxK = chInventory[k][0];
-                                                    maxL = nInventory[l][0];
-                                                    maxM = rInventory[m][0];
-                                                    maxN = bInventory[n][0];
+                                                    maxI =i;//wInventory[i][0];
+                                                    maxJ =j;//hInventory[j][0];
+                                                    maxK =k;//chInventory[k][0];
+                                                    maxL =l;//nInventory[l][0];
+                                                    maxM =m;//rInventory[m][0];
+                                                    maxN =n;//bInventory[n][0];
+                                                    System.out.println(spd);
+                                                    System.out.println("winv"+wInventory[i][9]);
+
+                                                    System.out.println("hinv"+hInventory[j][9]);
+
+                                                    System.out.println("chinv"+chInventory[k][9]);
+
+                                                    System.out.println("ninv"+nInventory[l][9]);
+
+                                                    System.out.println("rinv"+rInventory[m][9]);
+
+                                                    System.out.println("binv"+bInventory[n][9]);
+                                                    System.out.println("-----");
                                                 }
                                             }
                                         }
@@ -558,65 +571,74 @@ public class Bagv2 {
     public Sets outputSets(int i, int j, int k, int l, int m, int n){
         set = new Sets(getWlist().get(i),getHlist().get(j),getChlist().get(k),
                     getNlist().get(l),getRlist().get(m),getBlist().get(n));
+
+        System.out.println("topspdwinv"+wInventory[10][9]);
+        System.out.println("topspdwlist"+getWlist().get(10).getSpd());
+
+        System.out.println("winv"+wInventory[i][9]);
+        System.out.println("wlist"+getWlist().get(i).getSpd());
+
+        System.out.println("hinv"+hInventory[j][9]);
+        System.out.println("hlist"+getHlist().get(j).getSpd());
+
+        System.out.println("chinv"+chInventory[k][9]);
+        System.out.println("chlist"+getChlist().get(k).getSpd());
+
+        System.out.println("ninv"+nInventory[l][9]);
+        System.out.println("nlist"+getNlist().get(l).getSpd());
+
+        System.out.println("rinv"+rInventory[m][9]);
+        System.out.println("rlist"+getRlist().get(m).getSpd());
+
+        System.out.println("binv"+bInventory[n][9]);
+        System.out.println("blist"+getBlist().get(n).getSpd());
+
+        getWlist().remove(i);
+        getHlist().remove(j);
+        getChlist().remove(k);
+        getNlist().remove(l);
+        getRlist().remove(m);
+        getBlist().remove(n);
+
         history.add(set);
+
         int aIdx=0, bIdx=0,cIdx=0,dIdx=0,eIdx=0,fIdx=0;
+
+
         List<int[]> list = new ArrayList<int[]>(Arrays.asList(wInventory));
-        for (int a=0;a<list.size();a++){
-            if(list.get(a)[0]==i){
-                list.remove(a);
-                aIdx=a;
-            }
-        }
+        aIdx = wInventory[i][0];
+        
+        list.remove(i);
         wInventory = list.toArray(new int[][]{});
         wCntr--;
 
         List<int[]> list1 = new ArrayList<int[]>(Arrays.asList(hInventory));
-        for (int a=0;a<list1.size();a++){
-            if(list1.get(a)[0]==j){
-                list1.remove(a);
-                bIdx=a;
-            }
-        }
+        bIdx = hInventory[j][0];
+        list1.remove(j);
         hInventory = list1.toArray(new int[][]{});
         hCntr--;
 
         List<int[]> list2 = new ArrayList<int[]>(Arrays.asList(chInventory));
-        for (int a=0;a<list2.size();a++){
-            if(list2.get(a)[0]==k){
-                list2.remove(a);
-                cIdx=a;
-            }
-        }
+        cIdx = chInventory[k][0];
+        list2.remove(k);
         chInventory = list2.toArray(new int[][]{});
         chCntr--;
 
         List<int[]> list3 = new ArrayList<int[]>(Arrays.asList(nInventory));
-        for (int a=0;a<list3.size();a++){
-            if(list3.get(a)[0]==l){
-                list3.remove(a);
-                dIdx=a;
-            }
-        }
+        dIdx = nInventory[l][0];
+        list3.remove(l);
         nInventory = list3.toArray(new int[][]{});
         nCntr--;
 
         List<int[]> list4 = new ArrayList<int[]>(Arrays.asList(rInventory));
-        for (int a=0;a<list4.size();a++){
-            if(list4.get(a)[0]==m){
-                list4.remove(a);
-                eIdx=a;
-            }
-        }
+        eIdx = rInventory[m][0];
+        list4.remove(m);
         rInventory = list4.toArray(new int[][]{});
         rCntr--;
 
         List<int[]> list5 = new ArrayList<int[]>(Arrays.asList(bInventory));
-        for (int a=0;a<list5.size();a++){
-            if(list5.get(a)[0]==n){
-                list5.remove(a);
-                fIdx=a;
-            }
-        }
+        fIdx = bInventory[n][0];
+        list5.remove(n);
         bInventory = list5.toArray(new int[][]{});
         bCntr--;
 
@@ -648,6 +670,7 @@ public class Bagv2 {
                 strCntr--;
             }
         }
+        strInventory = strlist.toArray(new String[][]{});
 
         return set;
     }
