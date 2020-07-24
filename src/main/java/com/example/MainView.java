@@ -262,49 +262,14 @@ public class MainView extends VerticalLayout  {
             maxCritLabel,maxCdLabel,maxSpdLabel,maxEffLabel);
         
 
-        Anchor bagExample = new Anchor(new StreamResource("bag.txt", new InputStreamFactory(){
-
-            @Override
-            public InputStream createInputStream() {
-                try{
-                    File initialFile = new File(".\\bag.txt");
-                    InputStream targetStream = new FileInputStream(initialFile);
-                    return targetStream;
-                }
-                catch(Exception e){
-                    return null;
-                }
-            }
-        }),"Download bag example");
+        Anchor bagExample = new Anchor(
+            "https://srv-file20.gofile.io/download/JhQEu6/bag.txt","Download bag example");
         
-        Anchor heroExample = new Anchor(new StreamResource("heroBag.txt", new InputStreamFactory(){
+        Anchor heroExample = new Anchor(
+            "https://srv-file20.gofile.io/download/JhQEu6/heroBag.txt","Download heroBag example");
 
-            @Override
-            public InputStream createInputStream() {
-                try{
-                    File initialFile = new File(".\\heroBag.txt");
-                    InputStream targetStream = new FileInputStream(initialFile);
-                    return targetStream;
-                }
-                catch(Exception e){
-                    return null;
-                }
-            }
-        }),"Download heroBag example");
-        Anchor xlsxExample = new Anchor(new StreamResource("gearBag.xlsx", new InputStreamFactory(){
-
-            @Override
-            public InputStream createInputStream() {
-                try{
-                    File initialFile = new File(".\\gearBag.xlsx");
-                    InputStream targetStream = new FileInputStream(initialFile);
-                    return targetStream;
-                }
-                catch(Exception e){
-                    return null;
-                }
-            }
-        }),"Download gearBag.xlsx example");
+        Anchor xlsxExample = new Anchor(
+            "https://srv-file20.gofile.io/download/JhQEu6/gearBag.xlsx","Download gearBag.xlsx example");
         add(listBox,nameLayout,checkboxGroup,upload,statGrid,heroGrid,a,bagExample,heroExample,xlsxExample);
         
         Button button = new Button("Run Calcs",
