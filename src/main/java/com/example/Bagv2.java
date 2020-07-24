@@ -99,7 +99,7 @@ public class Bagv2 {
         int seth = (strInventory[wCntr+j][1].equals("eff"))? 1 : 0;
         int setch = (strInventory[wCntr+hCntr+k][1].equals("eff"))? 1 : 0;
         int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("eff"))? 1 : 0;
-        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("eff"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+nCntr+m][1].equals("eff"))? 1 : 0;
         int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("eff"))? 1 : 0;
         return setw+seth+setch+setn+setr+setb;
 
