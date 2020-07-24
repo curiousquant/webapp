@@ -112,9 +112,9 @@ public class MainView extends VerticalLayout  {
 
         
         try{
-            File initialFile = new File(".\\src\\main\\java\\com\\example\\bag.txt");
+            File initialFile = new File("bag.txt");
             InputStream targetStream = new FileInputStream(initialFile);
-            File heroFile = new File(".\\src\\main\\java\\com\\example\\heroBag.txt");
+            File heroFile = new File("heroBag.txt");
             InputStream targetHeroStream = new FileInputStream(heroFile);
             String bag = IOUtils.toString(targetStream, StandardCharsets.UTF_8);
             //System.out.println(bag);
@@ -183,8 +183,8 @@ public class MainView extends VerticalLayout  {
         final Upload upload = new Upload(multiFileMemoryBuffer);
         upload.addFinishedListener(e -> {
             
-            InputStream inputStreamBag = multiFileMemoryBuffer.getInputStream(".\\rc\\main\\java\\com\\example\\bag.txt");
-            InputStream inputStreamHero = multiFileMemoryBuffer.getInputStream(".\\src\\main\\java\\com\\example\\heroBag.txt");
+            InputStream inputStreamBag = multiFileMemoryBuffer.getInputStream("bag.txt");
+            InputStream inputStreamHero = multiFileMemoryBuffer.getInputStream("heroBag.txt");
             // read the contents of the buffered memory
             // from inputStream
             try{
@@ -262,12 +262,12 @@ public class MainView extends VerticalLayout  {
             maxCritLabel,maxCdLabel,maxSpdLabel,maxEffLabel);
         
 
-        Anchor bagExample = new Anchor(new StreamResource(".\\src\\main\\java\\com\\example\\bag.txt", new InputStreamFactory(){
+        Anchor bagExample = new Anchor(new StreamResource("bag.txt", new InputStreamFactory(){
 
             @Override
             public InputStream createInputStream() {
                 try{
-                    File initialFile = new File(".\\src\\main\\java\\com\\example\\bag.txt");
+                    File initialFile = new File("bag.txt");
                     InputStream targetStream = new FileInputStream(initialFile);
                     return targetStream;
                 }
@@ -282,7 +282,7 @@ public class MainView extends VerticalLayout  {
             @Override
             public InputStream createInputStream() {
                 try{
-                    File initialFile = new File(".\\src\\main\\java\\com\\example\\heroBag.txt");
+                    File initialFile = new File("heroBag.txt");
                     InputStream targetStream = new FileInputStream(initialFile);
                     return targetStream;
                 }

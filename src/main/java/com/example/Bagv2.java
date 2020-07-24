@@ -342,7 +342,7 @@ public class Bagv2 {
                                                     maxL =l;//nInventory[l][0];
                                                     maxM =m;//rInventory[m][0];
                                                     maxN =n;//bInventory[n][0];
-                                                    System.out.println(spd);
+                                                    //System.out.println(spd);
                                                 }
                                             }
                                         }
