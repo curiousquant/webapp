@@ -38,7 +38,7 @@ public class Bagv2 {
         int seth = (strInventory[wCntr+j][1].equals("atk"))? 1 : 0;
         int setch = (strInventory[wCntr+hCntr+k][1].equals("atk"))? 1 : 0;
         int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("atk"))? 1 : 0;
-        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("atk"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+nCntr+m][1].equals("atk"))? 1 : 0;
         int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("atk"))? 1 : 0;
         return setw+seth+setch+setn+setr+setb>=4;
 
@@ -48,7 +48,7 @@ public class Bagv2 {
         int seth = (strInventory[wCntr+j][1].equals("def"))? 1 : 0;
         int setch = (strInventory[wCntr+hCntr+k][1].equals("def"))? 1 : 0;
         int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("def"))? 1 : 0;
-        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("def"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+nCntr+m][1].equals("def"))? 1 : 0;
         int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("def"))? 1 : 0;
         return setw+seth+setch+setn+setr+setb;
 
@@ -58,7 +58,7 @@ public class Bagv2 {
         int seth = (strInventory[wCntr+j][1].equals("hp"))? 1 : 0;
         int setch = (strInventory[wCntr+hCntr+k][1].equals("hp"))? 1 : 0;
         int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("hp"))? 1 : 0;
-        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("hp"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+nCntr+m][1].equals("hp"))? 1 : 0;
         int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("hp"))? 1 : 0;
         return setw+seth+setch+setn+setr+setb;
 
@@ -68,7 +68,7 @@ public class Bagv2 {
         int seth = (strInventory[wCntr+j][1].equals("crit"))? 1 : 0;
         int setch = (strInventory[wCntr+hCntr+k][1].equals("crit"))? 1 : 0;
         int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("crit"))? 1 : 0;
-        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("crit"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+nCntr+m][1].equals("crit"))? 1 : 0;
         int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("crit"))? 1 : 0;
         return setw+seth+setch+setn+setr+setb;
 
@@ -78,7 +78,7 @@ public class Bagv2 {
         int seth = (strInventory[wCntr+j][1].equals("dest"))? 1 : 0;
         int setch = (strInventory[wCntr+hCntr+k][1].equals("dest"))? 1 : 0;
         int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("dest"))? 1 : 0;
-        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("dest"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+nCntr+m][1].equals("dest"))? 1 : 0;
         int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("dest"))? 1 : 0;
         return setw+seth+setch+setn+setr+setb;
 
@@ -88,8 +88,8 @@ public class Bagv2 {
         int seth = (strInventory[wCntr+j][1].equals("spd"))? 1 : 0;
         int setch = (strInventory[wCntr+hCntr+k][1].equals("spd"))? 1 : 0;
         int setn = (strInventory[wCntr+hCntr+chCntr+l][1].equals("spd"))? 1 : 0;
-        int setr = (strInventory[wCntr+hCntr+chCntr+rCntr+m][1].equals("spd"))? 1 : 0;
-        int setb = (strInventory[wCntr+hCntr+chCntr+rCntr+nCntr+n][1].equals("spd"))? 1 : 0;
+        int setr = (strInventory[wCntr+hCntr+chCntr+nCntr+m][1].equals("spd"))? 1 : 0;
+        int setb = (strInventory[wCntr+hCntr+chCntr+nCntr+rCntr+n][1].equals("spd"))? 1 : 0;
         return setw+seth+setch+setn+setr+setb;
 
     }
@@ -342,7 +342,7 @@ public class Bagv2 {
                                                     maxL =l;//nInventory[l][0];
                                                     maxM =m;//rInventory[m][0];
                                                     maxN =n;//bInventory[n][0];
-                                                    
+                                                    System.out.println(spd);
                                                 }
                                             }
                                         }
