@@ -342,19 +342,7 @@ public class Bagv2 {
                                                     maxL =l;//nInventory[l][0];
                                                     maxM =m;//rInventory[m][0];
                                                     maxN =n;//bInventory[n][0];
-                                                    System.out.println(spd);
-                                                    System.out.println("winv"+wInventory[i][9]);
-
-                                                    System.out.println("hinv"+hInventory[j][9]);
-
-                                                    System.out.println("chinv"+chInventory[k][9]);
-
-                                                    System.out.println("ninv"+nInventory[l][9]);
-
-                                                    System.out.println("rinv"+rInventory[m][9]);
-
-                                                    System.out.println("binv"+bInventory[n][9]);
-                                                    System.out.println("-----");
+                                                    
                                                 }
                                             }
                                         }
@@ -571,27 +559,6 @@ public class Bagv2 {
     public Sets outputSets(int i, int j, int k, int l, int m, int n){
         set = new Sets(getWlist().get(i),getHlist().get(j),getChlist().get(k),
                     getNlist().get(l),getRlist().get(m),getBlist().get(n));
-
-        System.out.println("topspdwinv"+wInventory[10][9]);
-        System.out.println("topspdwlist"+getWlist().get(10).getSpd());
-
-        System.out.println("winv"+wInventory[i][9]);
-        System.out.println("wlist"+getWlist().get(i).getSpd());
-
-        System.out.println("hinv"+hInventory[j][9]);
-        System.out.println("hlist"+getHlist().get(j).getSpd());
-
-        System.out.println("chinv"+chInventory[k][9]);
-        System.out.println("chlist"+getChlist().get(k).getSpd());
-
-        System.out.println("ninv"+nInventory[l][9]);
-        System.out.println("nlist"+getNlist().get(l).getSpd());
-
-        System.out.println("rinv"+rInventory[m][9]);
-        System.out.println("rlist"+getRlist().get(m).getSpd());
-
-        System.out.println("binv"+bInventory[n][9]);
-        System.out.println("blist"+getBlist().get(n).getSpd());
 
         getWlist().remove(i);
         getHlist().remove(j);
