@@ -291,29 +291,29 @@ public class MainView extends VerticalLayout  {
                 }
                 System.out.println(checkboxGroup.getValue());
 
-                if(maxAtkLabel.getValue().equals("")){
+                if(maxAtkLabel.getValue().equals("")||(maxAtkLabel.getValue().isEmpty())){
                     maxAtkLabel.setValue("0");
                 }
-                if(maxDefLabel.getValue().equals("")){
+                if(maxDefLabel.getValue().equals("")||maxDefLabel.getValue().isEmpty()){
                     maxDefLabel.setValue("0");
                 }
                 
-                if(maxHpLabel.getValue().equals("")){
+                if(maxHpLabel.getValue().equals("")||maxHpLabel.getValue().isEmpty()){
                     maxHpLabel.setValue("0");
                 }
                 
-                if(maxCritLabel.getValue().equals("")){
+                if(maxCritLabel.getValue().equals("")||maxCritLabel.getValue().isEmpty()){
                     maxCritLabel.setValue("0");
                 }
                 
-                if(maxCdLabel.getValue().equals("")){
+                if(maxCdLabel.getValue().equals("")||maxCdLabel.getValue().isEmpty()){
                     maxCdLabel.setValue("0");
                 }
                 
-                if(maxSpdLabel.getValue().equals("")){
+                if(maxSpdLabel.getValue().equals("")||maxSpdLabel.getValue().isEmpty()){
                     maxSpdLabel.setValue("0");
                 }
-                if(maxEffLabel.getValue().equals("")){
+                if(maxEffLabel.getValue().equals("")||maxEffLabel.getValue().isEmpty()){
                     maxEffLabel.setValue("0");
                 }
                 
