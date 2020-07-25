@@ -291,29 +291,29 @@ public class MainView extends VerticalLayout  {
                 }
                 System.out.println(checkboxGroup.getValue());
 
-                if(maxAtkLabel.getValue().isBlank()){
+                if(maxAtkLabel.getValue().equals("")){
                     maxAtkLabel.setValue("0");
                 }
-                if(maxDefLabel.getValue().isBlank()){
+                if(maxDefLabel.getValue().equals("")){
                     maxDefLabel.setValue("0");
                 }
                 
-                if(maxHpLabel.getValue().isBlank()){
+                if(maxHpLabel.getValue().equals("")){
                     maxHpLabel.setValue("0");
                 }
                 
-                if(maxCritLabel.getValue().isBlank()){
+                if(maxCritLabel.getValue().equals("")){
                     maxCritLabel.setValue("0");
                 }
                 
-                if(maxCdLabel.getValue().isBlank()){
+                if(maxCdLabel.getValue().equals("")){
                     maxCdLabel.setValue("0");
                 }
                 
-                if(maxSpdLabel.getValue().isBlank()){
+                if(maxSpdLabel.getValue().equals("")){
                     maxSpdLabel.setValue("0");
                 }
-                if(maxEffLabel.getValue().isBlank()){
+                if(maxEffLabel.getValue().equals("")){
                     maxEffLabel.setValue("0");
                 }
                 
