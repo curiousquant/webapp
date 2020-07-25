@@ -78,6 +78,7 @@ public class MainView extends VerticalLayout  {
         Bagv2 b = new Bagv2();
         //setSizeFull();
 
+        Label uploadLabel = new Label("Upload bag.txt and heroBag.txt-see examples below");
         Label equipLabel = new Label("Weapon | Helmet | Chest | Neck | Ring | Boot");
         Label heroLabel = new Label("Hero Stats");
 
@@ -278,7 +279,7 @@ public class MainView extends VerticalLayout  {
 
         Anchor xlsxExample = new Anchor(
             "https://srv-file20.gofile.io/download/JhQEu6/gearBag.xlsx","Download gearBag.xlsx example");
-        add(listBox,nameLayout,checkboxGroup,upload,equipLabel,statGrid,heroLabel,heroGrid,a,bagExample,heroExample,xlsxExample);
+        add(listBox,nameLayout,checkboxGroup,uploadLabel,upload,equipLabel,statGrid,heroLabel,heroGrid,a,bagExample,heroExample,xlsxExample);
         
         Button button = new Button("Run Calcs",
         e -> {
