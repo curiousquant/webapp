@@ -72,6 +72,7 @@ public class MainView extends VerticalLayout  {
         grid.setWidth("1600px");
         statGrid.setWidth("1600px");
         heroGrid.setWidth("1600px");
+        heroGrid.setHeight("100px");
         historyGrid.setWidth("1600px");
         Example ex = new Example();
         Bagv2 b = new Bagv2();
@@ -343,6 +344,7 @@ public class MainView extends VerticalLayout  {
                 }
         
                 heroGrid.setItems(h);
+                
                 historyGrid.setItems(tmp1);
             }
         
