@@ -16,13 +16,13 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.formlayout.FormLayout.ResponsiveStep;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Anchor;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.component.upload.Upload;
 import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.InputStreamFactory;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.server.StreamResource;
 
@@ -61,7 +61,7 @@ public class MainView extends VerticalLayout  {
     public MainView(@Autowired GreetService service) {
         
         final Grid<Equipment> grid = new Grid<>(Equipment.class);
-        final Grid<Equipment> statGrid = new Grid<>(Equipment.class);
+        final Grid<Equipment> statGrid = new Grid<>();
         final Grid<Hero> heroGrid = new Grid<>(Hero.class);
         final Grid<Equipment> historyGrid = new Grid<>();
         FormLayout nameLayout = new FormLayout();
@@ -73,12 +73,16 @@ public class MainView extends VerticalLayout  {
         statGrid.setWidth("1600px");
         heroGrid.setWidth("1600px");
         historyGrid.setWidth("1600px");
+        Example ex = new Example();
         Bagv2 b = new Bagv2();
-        setSizeFull();
+        //setSizeFull();
+
+        Label equipLabel = new Label("Weapon | Helmet | Chest | Neck | Ring | Boot");
+        Label heroLabel = new Label("Hero Stats");
 
 
         CheckboxGroup<String> checkboxGroup = new CheckboxGroup<>();
-        checkboxGroup.setLabel("Label");
+        checkboxGroup.setLabel("Maximium settings:");
         checkboxGroup.setItems("Atk", "Def", "Hp","Crit Chance","Crit Dmg","Spd","Eff","Special DPS");
         checkboxGroup.setValue(Collections.singleton("Atk"));
         
@@ -112,11 +116,7 @@ public class MainView extends VerticalLayout  {
 
         
         try{
-            File initialFile = new File(".\\bag.txt");
-            InputStream targetStream = new FileInputStream(initialFile);
-            File heroFile = new File(".\\heroBag.txt");
-            InputStream targetHeroStream = new FileInputStream(heroFile);
-            String bag = IOUtils.toString(targetStream, StandardCharsets.UTF_8);
+            String bag = ex.bag;
             //System.out.println(bag);
             if(bag.length()>1){
                 b.wlist.clear();
@@ -141,7 +141,7 @@ public class MainView extends VerticalLayout  {
                 //grid.setItems(tmp);
             }
             
-            String heroBag = IOUtils.toString(targetHeroStream, StandardCharsets.UTF_8);
+            String heroBag = ex.heroBag;
             if(heroBag.length()>1){
                 listBox.setValue(null);
                 b.heros.clear();
@@ -163,19 +163,16 @@ public class MainView extends VerticalLayout  {
 
 
         listBox.addValueChangeListener(event -> {
-            //if(isActive){
-                
-                Hero selectedHero = new Hero();
-                for(int i=0;i<b.heros.size();i++){
-                    if(b.heros.get(i).getName().equals(listBox.getValue())){
-                        selectedHero = b.heros.get(i);
-                    }
+            Hero selectedHero = new Hero();
+            for(int i=0;i<b.heros.size();i++){
+                if(b.heros.get(i).getName().equals(listBox.getValue())){
+                    selectedHero = b.heros.get(i);
                 }
-                if(selectedHero!=null&&out_calc.size()>0){
-                    ArrayList<Hero> h = b.calcHero(selectedHero,out_calc);
-                    heroGrid.setItems(h);
-                }
-                
+            }
+            if(selectedHero!=null&&out_calc.size()>0){
+                ArrayList<Hero> h = b.calcHero(selectedHero,out_calc);
+                heroGrid.setItems(h);
+            }
         });
         
         
@@ -183,8 +180,8 @@ public class MainView extends VerticalLayout  {
         final Upload upload = new Upload(multiFileMemoryBuffer);
         upload.addFinishedListener(e -> {
             
-            InputStream inputStreamBag = multiFileMemoryBuffer.getInputStream(".\\bag.txt");
-            InputStream inputStreamHero = multiFileMemoryBuffer.getInputStream(".\\heroBag.txt");
+            InputStream inputStreamBag = multiFileMemoryBuffer.getInputStream("bag.txt");
+            InputStream inputStreamHero = multiFileMemoryBuffer.getInputStream("heroBag.txt");
             // read the contents of the buffered memory
             // from inputStream
             try{
@@ -235,6 +232,16 @@ public class MainView extends VerticalLayout  {
         });
 
         
+        statGrid.addColumn(Equipment::getId).setHeader("id").setKey("id");
+        statGrid.addColumn(Equipment::getP_atk).setHeader("% atk").setKey("p_atk");
+        statGrid.addColumn(Equipment::getP_def).setHeader("% def").setKey("p_def");
+        statGrid.addColumn(Equipment::getP_hp).setHeader("% hp").setKey("p_hp");
+        statGrid.addColumn(Equipment::getC).setHeader("crit chance").setKey("c");
+        statGrid.addColumn(Equipment::getCd).setHeader("crit dmg").setKey("cd");
+        statGrid.addColumn(Equipment::getSpd).setHeader("speed").setKey("spd");
+        statGrid.addColumn(Equipment::getEff).setHeader("effect").setKey("eff");
+        statGrid.addColumn(Equipment::getEffres).setHeader("effect resis").setKey("effres");
+        statGrid.addColumn(Equipment::getSet).setHeader("set").setKey("set");
 
         historyGrid.addColumn(Equipment::getId).setHeader("id").setKey("id");
         historyGrid.addColumn(Equipment::getF_atk).setHeader("flat atk").setKey("f_atk");
@@ -270,7 +277,7 @@ public class MainView extends VerticalLayout  {
 
         Anchor xlsxExample = new Anchor(
             "https://srv-file20.gofile.io/download/JhQEu6/gearBag.xlsx","Download gearBag.xlsx example");
-        add(listBox,nameLayout,checkboxGroup,upload,statGrid,heroGrid,a,bagExample,heroExample,xlsxExample);
+        add(listBox,nameLayout,checkboxGroup,upload,equipLabel,statGrid,heroLabel,heroGrid,a,bagExample,heroExample,xlsxExample);
         
         Button button = new Button("Run Calcs",
         e -> {
@@ -283,6 +290,33 @@ public class MainView extends VerticalLayout  {
                     }
                 }
                 System.out.println(checkboxGroup.getValue());
+
+                if(maxAtkLabel.getValue().isBlank()){
+                    maxAtkLabel.setValue("0");
+                }
+                if(maxDefLabel.getValue().isBlank()){
+                    maxDefLabel.setValue("0");
+                }
+                
+                if(maxHpLabel.getValue().isBlank()){
+                    maxHpLabel.setValue("0");
+                }
+                
+                if(maxCritLabel.getValue().isBlank()){
+                    maxCritLabel.setValue("0");
+                }
+                
+                if(maxCdLabel.getValue().isBlank()){
+                    maxCdLabel.setValue("0");
+                }
+                
+                if(maxSpdLabel.getValue().isBlank()){
+                    maxSpdLabel.setValue("0");
+                }
+                if(maxEffLabel.getValue().isBlank()){
+                    maxEffLabel.setValue("0");
+                }
+                
                 Sets s = b.runCalcs(selectedHero,checkboxGroup.getValue().contains("Atk"),
                     checkboxGroup.getValue().contains("Def"),checkboxGroup.getValue().contains("Hp"),
                     checkboxGroup.getValue().contains("Crit Chance"),checkboxGroup.getValue().contains("Crit Dmg"),
