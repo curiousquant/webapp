@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.ArrayList;
+//to do
+//delete tables when app is closed
+//import heros 
+//create new Run Calcs using cross join + heros
+//test on dyno
 
 public class e7Database {
     

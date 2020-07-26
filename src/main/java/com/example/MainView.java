@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.checkbox.CheckboxGroup;
@@ -26,6 +27,7 @@ import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.server.StreamResource;
+import com.vaadin.shared.ui.ContentMode;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +65,8 @@ public class MainView extends VerticalLayout {
         final Grid<Hero> heroGrid = new Grid<>(Hero.class);
         final Grid<Equipment> historyGrid = new Grid<>();
         FormLayout nameLayout = new FormLayout();
-
+        //Label label = new Label("<script data-ad-client=\"ca-pub-7932089669543857\" async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>");
+        Html label = new Html("<script data-ad-client=\"ca-pub-7932089669543857\" async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>");
         Select<String> listBox = new Select<>();
         ArrayList<Equipment> out_calc = new ArrayList<>();
         String time = ZonedDateTime                    // Represent a moment as perceived in the wall-clock time used by the people of a particular region ( a time zone).
@@ -164,12 +167,12 @@ public class MainView extends VerticalLayout {
                 e7.clearBag(Ntbl);
                 e7.clearBag(Rtbl);
                 e7.clearBag(Btbl);
-                e7.insertBag(b.getHlist(), Wtbl);
+                e7.insertBag(b.getWlist(), Wtbl);
                 e7.insertBag(b.getHlist(), Htbl);
-                e7.insertBag(b.getHlist(), Ctbl);
-                e7.insertBag(b.getHlist(), Ntbl);
-                e7.insertBag(b.getHlist(), Rtbl);
-                e7.insertBag(b.getHlist(), Btbl);
+                e7.insertBag(b.getChlist(), Ctbl);
+                e7.insertBag(b.getNlist(), Ntbl);
+                e7.insertBag(b.getRlist(), Rtbl);
+                e7.insertBag(b.getBlist(), Btbl);
                 //grid.setItems(tmp);
             }
             
@@ -249,12 +252,12 @@ public class MainView extends VerticalLayout {
                     e7.clearBag(Ntbl);
                     e7.clearBag(Rtbl);
                     e7.clearBag(Btbl);
-                    e7.insertBag(b.getHlist(), Wtbl);
+                    e7.insertBag(b.getWlist(), Wtbl);
                     e7.insertBag(b.getHlist(), Htbl);
-                    e7.insertBag(b.getHlist(), Ctbl);
-                    e7.insertBag(b.getHlist(), Ntbl);
-                    e7.insertBag(b.getHlist(), Rtbl);
-                    e7.insertBag(b.getHlist(), Btbl);
+                    e7.insertBag(b.getChlist(), Ctbl);
+                    e7.insertBag(b.getNlist(), Ntbl);
+                    e7.insertBag(b.getRlist(), Rtbl);
+                    e7.insertBag(b.getBlist(), Btbl);
                 }
                 
                 String heroBag = IOUtils.toString(inputStreamHero, StandardCharsets.UTF_8);
@@ -324,7 +327,7 @@ public class MainView extends VerticalLayout {
 
         Anchor xlsxExample = new Anchor(
             "https://srv-file20.gofile.io/download/JhQEu6/gearBag.xlsx","Download gearBag.xlsx example");
-        add(listBox,nameLayout,checkboxGroup,uploadLabel,upload,equipLabel,statGrid,heroLabel,heroGrid,a,bagExample,heroExample,xlsxExample);
+        add(label,listBox,nameLayout,checkboxGroup,uploadLabel,upload,equipLabel,statGrid,heroLabel,heroGrid,a,bagExample,heroExample,xlsxExample);
         
         Button button = new Button("Run Calcs",
         e -> {
