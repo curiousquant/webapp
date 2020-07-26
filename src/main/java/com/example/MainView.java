@@ -1,10 +1,11 @@
 
 package com.example;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -33,42 +34,59 @@ import org.vaadin.haijian.Exporter;
 /**
  * A sample Vaadin view class.
  * <p>
- * To implement a Vaadin view just extend any Vaadin component and
- * use @Route annotation to announce it in a URL as a Spring managed
- * bean.
- * Use the @PWA annotation make the application installable on phones,
- * tablets and some desktop browsers.
+ * To implement a Vaadin view just extend any Vaadin component and use @Route
+ * annotation to announce it in a URL as a Spring managed bean. Use the @PWA
+ * annotation make the application installable on phones, tablets and some
+ * desktop browsers.
  * <p>
- * A new instance of this class is created for every new user and every
- * browser tab/window.
+ * A new instance of this class is created for every new user and every browser
+ * tab/window.
  */
 @Route
-@PWA(name = "Vaadin Application",
-        shortName = "Vaadin App",
-        description = "This is an example Vaadin application.",
-        enableInstallPrompt = false)
+@PWA(name = "Vaadin Application", shortName = "Vaadin App", description = "This is an example Vaadin application.", enableInstallPrompt = false)
 @CssImport("./styles/shared-styles.css")
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
-public class MainView extends VerticalLayout  {
+public class MainView extends VerticalLayout {
 
     /**
      * Construct a new Vaadin view.
      * <p>
      * Build the initial UI state for the user accessing the application.
      *
-     * @param service The message service. Automatically injected Spring managed bean.
+     * @param service The message service. Automatically injected Spring managed
+     *                bean.
      */
     public MainView(@Autowired GreetService service) {
-        
+
         final Grid<Equipment> grid = new Grid<>(Equipment.class);
         final Grid<Equipment> statGrid = new Grid<>();
         final Grid<Hero> heroGrid = new Grid<>(Hero.class);
         final Grid<Equipment> historyGrid = new Grid<>();
         FormLayout nameLayout = new FormLayout();
-        
+
         Select<String> listBox = new Select<>();
-        ArrayList<Equipment>out_calc = new ArrayList<>();
-        
+        ArrayList<Equipment> out_calc = new ArrayList<>();
+        String time = ZonedDateTime                    // Represent a moment as perceived in the wall-clock time used by the people of a particular region ( a time zone).
+                                .now()                                // Returns a `ZonedDateTime` object. 
+                                .format(                         // Generate a `String` object containing text representing the value of our date-time object. 
+                                    DateTimeFormatter.ofPattern( "uuuu_MM_dd_HH_mm_ss" )
+                                );
+        System.out.println(time);
+        String Wtbl = "W_"+time;
+        String Htbl = "H_"+time;
+        String Ctbl = "C_"+time;
+        String Ntbl = "N_"+time;
+        String Rtbl = "R_"+time;
+        String Btbl = "B_"+time;
+
+        e7Database e7 = new e7Database();
+        e7.createTable(Wtbl);
+        e7.createTable(Htbl);
+        e7.createTable(Ctbl);
+        e7.createTable(Ntbl);
+        e7.createTable(Rtbl);
+        e7.createTable(Btbl);
+
         grid.setWidth("1600px");
         statGrid.setWidth("1600px");
         heroGrid.setWidth("1600px");
@@ -76,12 +94,11 @@ public class MainView extends VerticalLayout  {
         historyGrid.setWidth("1600px");
         Example ex = new Example();
         Bagv2 b = new Bagv2();
-        //setSizeFull();
+        // setSizeFull();
 
         Label uploadLabel = new Label("Upload bag.txt and heroBag.txt-see examples below");
         Label equipLabel = new Label("Weapon | Helmet | Chest | Neck | Ring | Boot");
         Label heroLabel = new Label("Hero Stats");
-
 
         CheckboxGroup<String> checkboxGroup = new CheckboxGroup<>();
         checkboxGroup.setLabel("Maximium settings:");
@@ -128,7 +145,8 @@ public class MainView extends VerticalLayout  {
                 b.rlist.clear();
                 b.blist.clear();
                 b.history.clear();
-
+                
+                
                 b.loadInventory(bag);
                 b.convertArray2List(b.wInventory,b.strInventory,"W");b.convertArray2List(b.hInventory,b.strInventory,"H");
                 b.convertArray2List(b.chInventory,b.strInventory,"Ch");b.convertArray2List(b.nInventory,b.strInventory,"N");
@@ -140,6 +158,18 @@ public class MainView extends VerticalLayout  {
                 tmp.addAll( b.getNlist());tmp.addAll( b.getRlist());
                 tmp.addAll( b.getBlist());
                 
+                e7.clearBag(Wtbl);
+                e7.clearBag(Htbl);
+                e7.clearBag(Ctbl);
+                e7.clearBag(Ntbl);
+                e7.clearBag(Rtbl);
+                e7.clearBag(Btbl);
+                e7.insertBag(b.getHlist(), Wtbl);
+                e7.insertBag(b.getHlist(), Htbl);
+                e7.insertBag(b.getHlist(), Ctbl);
+                e7.insertBag(b.getHlist(), Ntbl);
+                e7.insertBag(b.getHlist(), Rtbl);
+                e7.insertBag(b.getHlist(), Btbl);
                 //grid.setItems(tmp);
             }
             
@@ -176,10 +206,12 @@ public class MainView extends VerticalLayout  {
                 heroGrid.setItems(h);
             }
         });
-        
+
+       
         
         MultiFileMemoryBuffer multiFileMemoryBuffer = new MultiFileMemoryBuffer();
         final Upload upload = new Upload(multiFileMemoryBuffer);
+
         upload.addFinishedListener(e -> {
             
             InputStream inputStreamBag = multiFileMemoryBuffer.getInputStream("bag.txt");
@@ -210,6 +242,19 @@ public class MainView extends VerticalLayout  {
                     tmp.addAll( b.getBlist());
                     
                     //grid.setItems(tmp);
+
+                    e7.clearBag(Wtbl);
+                    e7.clearBag(Htbl);
+                    e7.clearBag(Ctbl);
+                    e7.clearBag(Ntbl);
+                    e7.clearBag(Rtbl);
+                    e7.clearBag(Btbl);
+                    e7.insertBag(b.getHlist(), Wtbl);
+                    e7.insertBag(b.getHlist(), Htbl);
+                    e7.insertBag(b.getHlist(), Ctbl);
+                    e7.insertBag(b.getHlist(), Ntbl);
+                    e7.insertBag(b.getHlist(), Rtbl);
+                    e7.insertBag(b.getHlist(), Btbl);
                 }
                 
                 String heroBag = IOUtils.toString(inputStreamHero, StandardCharsets.UTF_8);
@@ -355,4 +400,5 @@ public class MainView extends VerticalLayout  {
         
 
     }
+
 }
