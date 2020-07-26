@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.checkbox.CheckboxGroup;
@@ -81,7 +82,7 @@ public class MainView extends VerticalLayout  {
         Label uploadLabel = new Label("Upload bag.txt and heroBag.txt-see examples below");
         Label equipLabel = new Label("Weapon | Helmet | Chest | Neck | Ring | Boot");
         Label heroLabel = new Label("Hero Stats");
-
+        Html ht = new Html("<script data-ad-client=\"ca-pub-7932089669543857\" async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>");
 
         CheckboxGroup<String> checkboxGroup = new CheckboxGroup<>();
         checkboxGroup.setLabel("Maximium settings:");
@@ -279,7 +280,7 @@ public class MainView extends VerticalLayout  {
 
         Anchor xlsxExample = new Anchor(
             "https://srv-file20.gofile.io/download/JhQEu6/gearBag.xlsx","Download gearBag.xlsx example");
-        add(listBox,nameLayout,checkboxGroup,uploadLabel,upload,equipLabel,statGrid,heroLabel,heroGrid,a,bagExample,heroExample,xlsxExample);
+        add(listBox,nameLayout,checkboxGroup,uploadLabel,upload,equipLabel,statGrid,heroLabel,heroGrid,a,bagExample,heroExample,xlsxExample,ht);
         
         Button button = new Button("Run Calcs",
         e -> {
