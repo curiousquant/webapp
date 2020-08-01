@@ -6,8 +6,9 @@ import java.util.List;
 import com.example.Utilsv1;
 
 public class Bagv2 {
-    String[] heroNames;
+    String[] heroNames,wStr,cStr,hStr,nStr,rStr,bStr;
     String[][] strInventory;
+    
     int[][] heroStats,wInventory,hInventory,chInventory,nInventory,rInventory,bInventory;
     int wCntr = 0;
     int hCntr = 0;
@@ -29,6 +30,7 @@ public class Bagv2 {
     ArrayList<Hero> heros = new ArrayList<>();
 
     Sets set = new Sets();
+    
     public Bagv2(){
 
     }
@@ -766,6 +768,13 @@ public class Bagv2 {
         rInventory = new int[rcnt][column];
         bInventory = new int[bcnt][column];
 
+        wStr = new String[wcnt];
+        hStr = new String[hcnt];
+        cStr = new String[chcnt];
+        nStr = new String[ncnt];
+        rStr = new String[rcnt];
+        bStr = new String[bcnt];
+
         wCntr = 0;
         hCntr = 0;
         chCntr = 0;
@@ -808,26 +817,32 @@ public class Bagv2 {
                     
                         if(type.equals("weapon")){
                             strInventory[strCntr][2] = "W"+wCntr;
+                            wStr[wCntr]=txt;
                             wCntr++;
                         }
                         else if (type.equals("head")){
                             strInventory[strCntr][2] = "H"+hCntr;
+                            hStr[hCntr]=txt;
                             hCntr++;
                         }
                         else if (type.equals("chest")){
                             strInventory[strCntr][2] = "Ch"+chCntr;
+                            cStr[chCntr]=txt;
                             chCntr++;
                         }
                         else if (type.equals("neck")){
                             strInventory[strCntr][2] = "N"+nCntr;
+                            nStr[nCntr]=txt;
                             nCntr++;
                         }
                         else if (type.equals("ring")){
                             strInventory[strCntr][2] = "R"+rCntr;
+                            rStr[rCntr]=txt;
                             rCntr++;
                         }
                         else if (type.equals("boot")){
                             strInventory[strCntr][2] = "B"+bCntr;
+                            bStr[bCntr]=txt;
                             bCntr++;
                         }
                         strCntr++;

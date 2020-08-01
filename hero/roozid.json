@@ -1,0 +1,982 @@
+{
+    "_id": "roozid",
+    "id": "c3013",
+    "name": "chrn_c3013",
+    "moonlight": false,
+    "rarity": 3,
+    "attribute": "wind",
+    "role": "assassin",
+    "zodiac": "twins",
+    "description": "c3013_2line",
+    "story": "c3013_de_story",
+    "get_line": "c3013_gacha_get",
+    "stats": {
+        "bra": 67,
+        "int": 62,
+        "fai": 32,
+        "des": 74
+    },
+    "relationships": [
+        {
+            "name": null,
+            "description": null,
+            "relations": [
+                {
+                    "id": "c1013",
+                    "slot": 1,
+                    "description": "chre_c3013_1_rt",
+                    "relation": "re_longing_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c3053",
+                    "slot": 2,
+                    "description": "chre_c3013_2_rt",
+                    "relation": "re_trust_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c3062",
+                    "slot": 3,
+                    "description": "chre_c3013_3_rt",
+                    "relation": "re_trust_tx",
+                    "upgrade": {}
+                }
+            ]
+        }
+    ],
+    "self_devotion": {
+        "type": "max_hp",
+        "grades": {
+            "D": 180,
+            "C": 270,
+            "B": 360,
+            "A": 450,
+            "S": 540,
+            "SS": 630,
+            "SSS": 720
+        }
+    },
+    "devotion": {
+        "type": "speed",
+        "grades": {
+            "D": 2,
+            "C": 3,
+            "B": 4,
+            "A": 5,
+            "S": 6,
+            "SS": 7,
+            "SSS": 8
+        },
+        "slots": {
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true
+        }
+    },
+    "specialty": {
+        "name": "sms_c3013_nm",
+        "description": "sms_c3013_de",
+        "icon": "smc_cook_2",
+        "effect_type": "reward_bonus",
+        "effect_value": 0.1,
+        "command": 55,
+        "charm": 75,
+        "politics": 11,
+        "type": {
+            "name": "smc_cook_nm",
+            "description": "smc_cook_de"
+        }
+    },
+    "camping": {
+        "personalities": [
+            "c_pers_14_altruism",
+            "c_pers_21_positive"
+        ],
+        "topics": [
+            "c_topic_7_sadmemo",
+            "c_topic_19_advice"
+        ],
+        "values": {
+            "c_topic_1_criticism": -5,
+            "c_topic_2_realistic": -5,
+            "c_topic_3_taleheroic": 0,
+            "c_topic_4_cheeringup": 3,
+            "c_topic_5_charmcheer": 6,
+            "c_topic_6_herocheer": 5,
+            "c_topic_7_sadmemo": 6,
+            "c_topic_8_enjoymemo": 7,
+            "c_topic_9_happymemo": 5,
+            "c_topic_10_unique": 3,
+            "c_topic_11_narcissis": -1,
+            "c_topic_12_occult": 0,
+            "c_topic_13_myth": 2,
+            "c_topic_14_gagsto": 0,
+            "c_topic_15_foodsto": 3,
+            "c_topic_16_horrorsto": -1,
+            "c_topic_17_gossip": 2,
+            "c_topic_18_dream": 5,
+            "c_topic_19_advice": 5,
+            "c_topic_20_moaning": 2,
+            "c_topic_22_belief": -1,
+            "c_topic_25_adventure": 3
+        }
+    },
+    "zodiac_tree": [
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runewind1",
+                    "count": 5
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att_rate",
+                    "value": 0.03,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runewind1",
+                    "count": 9
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "cri",
+                    "value": 0.04,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_02_nm",
+            "description": "zs_02_de",
+            "skill_enhanced": 3,
+            "costs": [
+                {
+                    "item": "ma_runewind1",
+                    "count": 12
+                },
+                {
+                    "item": "ma_runewind2",
+                    "count": 6
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runewind2",
+                    "count": 15
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "acc",
+                    "value": 0.12,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runewind3",
+                    "count": 4
+                },
+                {
+                    "item": "ma_magician_es",
+                    "count": 9
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att_rate",
+                    "value": 0.06,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runewind3",
+                    "count": 6
+                },
+                {
+                    "item": "ma_chimaera_es",
+                    "count": 6
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "cri",
+                    "value": 0.08,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        }
+    ],
+    "skills": [
+        {
+            "name": "sk_c3013_1_sknm",
+            "icon": "sk_m0015_w",
+            "can_enhance": false,
+            "description": "sk_c3013_1_de",
+            "values": [
+                0.35
+            ],
+            "passive": false,
+            "cooldown": 0,
+            "soul_gain": 1,
+            "pow": 1,
+            "att_rate": 0.8,
+            "buff": [],
+            "debuff": [
+                19
+            ],
+            "common": [],
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 1000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 50
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_eff1_5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 2000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 120
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 4000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 230
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_eff1_10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 21000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 400
+                        },
+                        {
+                            "item": "ma_taranor_es",
+                            "count": 3
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 29000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 650
+                        },
+                        {
+                            "item": "ma_taranor_es",
+                            "count": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sk_c3013_2_sknm",
+            "icon": "sk_m0016_w",
+            "can_enhance": false,
+            "description": "sk_c3013_2_de",
+            "values": [
+                0.35
+            ],
+            "passive": false,
+            "cooldown": 3,
+            "soul_gain": 1,
+            "pow": 1,
+            "att_rate": 1.2,
+            "buff": [],
+            "debuff": [
+                17
+            ],
+            "common": [],
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 1000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 50
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 2000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 120
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_cd1",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 4000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 230
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_eff1_15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 21000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 400
+                        },
+                        {
+                            "item": "ma_taranor_es",
+                            "count": 3
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 29000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 650
+                        },
+                        {
+                            "item": "ma_taranor_es",
+                            "count": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sk_c3013_3_sknm",
+            "icon": "sk_m0027_w",
+            "can_enhance": true,
+            "description": "sk_c3013_3_de",
+            "values": [
+                0.15
+            ],
+            "passive": false,
+            "cooldown": 4,
+            "soul_gain": 2,
+            "pow": 1,
+            "att_rate": 0,
+            "buff": [
+                3
+            ],
+            "debuff": [],
+            "common": [
+                35
+            ],
+            "soul_description": "sk_c3013_3s_de",
+            "soul_requirement": 20,
+            "soul_pow": 1,
+            "soul_att_rate": 0,
+            "enhanced_description": "sk_c3013_3u_de",
+            "enhancements": [
+                {
+                    "string": "sklv_de_ab1",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 1000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 50
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_ab1",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 2000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 120
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_cd1",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 4000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 230
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_ab1",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 21000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 400
+                        },
+                        {
+                            "item": "ma_taranor_es",
+                            "count": 3
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_ab2",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 29000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 650
+                        },
+                        {
+                            "item": "ma_taranor_es",
+                            "count": 4
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "specialty_change": {
+        "id": "c4013",
+        "changed_skill": 3,
+        "quests": [
+            {
+                "category": "de_race_kill",
+                "mission_name": "cc_c3013_quest_01_name",
+                "mission_description": "cc_c3013_quest_01_desc"
+            },
+            {
+                "category": "de_token_give",
+                "mission_name": "cc_c3013_quest_02_name",
+                "mission_description": "cc_c3013_quest_02_desc"
+            },
+            {
+                "category": "de_token_give",
+                "mission_name": "cc_c3013_quest_03_name",
+                "mission_description": "cc_c3013_quest_03_desc"
+            },
+            {
+                "category": "de_trial_clear",
+                "mission_name": "cc_c3013_quest_04_name",
+                "mission_description": "cc_c3013_quest_04_desc"
+            }
+        ],
+        "tree": [
+            [
+                {
+                    "id": 1,
+                    "position": 1,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "stat",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_01_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.02,
+                            "description": "str_c4013_01_1_de",
+                            "upgrade": "str_c4013_01_1_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.03,
+                            "description": "str_c4013_01_2_de",
+                            "upgrade": "str_c4013_01_2_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.05,
+                            "description": "str_c4013_01_3_de",
+                            "upgrade": "str_c4013_01_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "position": 2,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_02_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_02_1_de",
+                            "upgrade": "str_c4013_02_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_02_2_de",
+                            "upgrade": "str_c4013_02_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_02_3_de",
+                            "upgrade": "str_c4013_02_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "position": 3,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_03_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_03_1_de",
+                            "upgrade": "str_c4013_03_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_03_2_de",
+                            "upgrade": "str_c4013_03_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_03_3_de",
+                            "upgrade": "str_c4013_03_3_up"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "id": 4,
+                    "position": 1,
+                    "require_id": 1,
+                    "enhancements": [
+                        {
+                            "type": "stat",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_04_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.02,
+                            "description": "str_c4013_04_1_de",
+                            "upgrade": "str_c4013_04_1_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.03,
+                            "description": "str_c4013_04_2_de",
+                            "upgrade": "str_c4013_04_2_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.05,
+                            "description": "str_c4013_04_3_de",
+                            "upgrade": "str_c4013_04_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "position": 3,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_05_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_05_1_de",
+                            "upgrade": "str_c4013_05_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_05_2_de",
+                            "upgrade": "str_c4013_05_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_05_3_de",
+                            "upgrade": "str_c4013_05_3_up"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "id": 6,
+                    "position": 2,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "stat",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_06_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "speed",
+                            "value": 1.0,
+                            "description": "str_c4013_06_1_de",
+                            "upgrade": "str_c4013_06_1_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "speed",
+                            "value": 1.0,
+                            "description": "str_c4013_06_2_de",
+                            "upgrade": "str_c4013_06_2_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "speed",
+                            "value": 1.0,
+                            "description": "str_c4013_06_3_de",
+                            "upgrade": "str_c4013_06_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "position": 3,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_07_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_07_1_de",
+                            "upgrade": "str_c4013_07_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_07_2_de",
+                            "upgrade": "str_c4013_07_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_07_3_de",
+                            "upgrade": "str_c4013_07_3_up"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "id": 8,
+                    "position": 1,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_08_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_08_1_de",
+                            "upgrade": "str_c4013_08_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_08_2_de",
+                            "upgrade": "str_c4013_08_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_08_3_de",
+                            "upgrade": "str_c4013_08_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "position": 3,
+                    "require_id": 7,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_09_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_09_1_de",
+                            "upgrade": "str_c4013_09_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_09_2_de",
+                            "upgrade": "str_c4013_09_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_09_3_de",
+                            "upgrade": "str_c4013_09_3_up"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "id": 10,
+                    "position": 2,
+                    "require_id": 6,
+                    "enhancements": [
+                        {
+                            "type": "stat",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4013_10_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "speed",
+                            "value": 1.0,
+                            "description": "str_c4013_10_1_de",
+                            "upgrade": "str_c4013_10_1_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "speed",
+                            "value": 2.0,
+                            "description": "str_c4013_10_2_de",
+                            "upgrade": "str_c4013_10_2_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "speed",
+                            "value": 2.0,
+                            "description": "str_c4013_10_3_de",
+                            "upgrade": "str_c4013_10_3_up"
+                        }
+                    ]
+                }
+            ]
+        ]
+    }
+}

@@ -1,0 +1,613 @@
+{
+    "_id": "free-spirit-tieria",
+    "id": "c3026",
+    "name": "chrn_c3026",
+    "moonlight": true,
+    "rarity": 4,
+    "attribute": "light",
+    "role": "warrior",
+    "zodiac": "maiden",
+    "description": "c3026_2line",
+    "story": "c3026_de_story",
+    "get_line": "c3026_gacha_get",
+    "stats": {
+        "bra": 89,
+        "int": 79,
+        "fai": 69,
+        "des": 78
+    },
+    "relationships": [
+        {
+            "name": null,
+            "description": null,
+            "relations": [
+                {
+                    "id": "c3021",
+                    "slot": 1,
+                    "description": "chre_c3026_1_rt",
+                    "relation": "re_grudge_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c2036",
+                    "slot": 2,
+                    "description": "chre_c3026_2_rt",
+                    "relation": "re_grudge_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c2047",
+                    "slot": 3,
+                    "description": "chre_c3026_3_rt",
+                    "relation": "re_grudge_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c2010",
+                    "slot": 4,
+                    "description": "chre_c3026_4_rt",
+                    "relation": "re_grudge_tx",
+                    "upgrade": {}
+                }
+            ]
+        }
+    ],
+    "self_devotion": {
+        "type": "cri",
+        "grades": {
+            "C": 0.042,
+            "B": 0.063,
+            "A": 0.084,
+            "S": 0.105,
+            "SS": 0.126,
+            "SSS": 0.147
+        }
+    },
+    "devotion": {
+        "type": "max_hp_rate",
+        "grades": {
+            "C": 0.024,
+            "B": 0.036,
+            "A": 0.048,
+            "S": 0.06,
+            "SS": 0.072,
+            "SSS": 0.084
+        },
+        "slots": {
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true
+        }
+    },
+    "specialty": {
+        "name": "sms_c3026_nm",
+        "description": "sms_c3026_de",
+        "icon": "sm_time_reduce",
+        "effect_type": "time_reduce",
+        "effect_value": 0.1,
+        "command": 45,
+        "charm": 89,
+        "politics": 8,
+        "type": {}
+    },
+    "camping": {
+        "personalities": [
+            "c_pers_5_pride",
+            "c_pers_4_narsist"
+        ],
+        "topics": [
+            "c_topic_11_narcissis",
+            "c_topic_17_gossip"
+        ],
+        "values": {
+            "c_topic_1_criticism": 8,
+            "c_topic_2_realistic": 0,
+            "c_topic_3_taleheroic": 8,
+            "c_topic_4_cheeringup": 8,
+            "c_topic_5_charmcheer": 9,
+            "c_topic_6_herocheer": 0,
+            "c_topic_7_sadmemo": 0,
+            "c_topic_8_enjoymemo": 0,
+            "c_topic_9_happymemo": 2,
+            "c_topic_10_unique": 2,
+            "c_topic_11_narcissis": -3,
+            "c_topic_12_occult": 0,
+            "c_topic_13_myth": 7,
+            "c_topic_14_gagsto": -6,
+            "c_topic_15_foodsto": 3,
+            "c_topic_16_horrorsto": -5,
+            "c_topic_17_gossip": 0,
+            "c_topic_18_dream": 2,
+            "c_topic_19_advice": 5,
+            "c_topic_20_moaning": -4,
+            "c_topic_22_belief": 1,
+            "c_topic_25_adventure": 0
+        }
+    },
+    "zodiac_tree": [
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runelight1",
+                    "count": 8
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "acc",
+                    "value": 0.06,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runelight1",
+                    "count": 12
+                },
+                {
+                    "item": "ma_runelight2",
+                    "count": 2
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "cri",
+                    "value": 0.04,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_02_nm",
+            "description": "zs_02_de",
+            "skill_enhanced": 2,
+            "costs": [
+                {
+                    "item": "ma_runelight1",
+                    "count": 17
+                },
+                {
+                    "item": "ma_runelight2",
+                    "count": 8
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runelight2",
+                    "count": 8
+                },
+                {
+                    "item": "ma_runelight3",
+                    "count": 1
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "speed",
+                    "value": 4.0,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runelight3",
+                    "count": 5
+                },
+                {
+                    "item": "ma_entree_es",
+                    "count": 12
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "acc",
+                    "value": 0.12,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runelight3",
+                    "count": 8
+                },
+                {
+                    "item": "ma_angraf_es",
+                    "count": 8
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "cri",
+                    "value": 0.08,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        }
+    ],
+    "skills": [
+        {
+            "name": "sk_c3026_1_sknm",
+            "icon": "sk_c3026_1",
+            "can_enhance": false,
+            "description": "sk_c3026_1_de",
+            "values": [],
+            "passive": false,
+            "cooldown": 0,
+            "soul_gain": 1,
+            "pow": 1,
+            "att_rate": 1.0,
+            "buff": [],
+            "debuff": [
+                17
+            ],
+            "common": [],
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 4000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 9000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        },
+                        {
+                            "item": "ma_banshee_es",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 9000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        },
+                        {
+                            "item": "ma_banshee_es",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 80000
+                        },
+                        {
+                            "item": "ma_moragora2",
+                            "count": 1
+                        },
+                        {
+                            "item": "ma_angraf_es",
+                            "count": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sk_c3026_2_sknm",
+            "icon": "sk_c3026_2",
+            "can_enhance": true,
+            "description": "sk_c3026_2_de",
+            "values": [],
+            "passive": false,
+            "cooldown": 3,
+            "soul_gain": 1,
+            "pow": 1,
+            "att_rate": 1.0,
+            "buff": [],
+            "debuff": [],
+            "common": [],
+            "enhanced_description": "sk_c3026_2u_de",
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 4000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 9000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        },
+                        {
+                            "item": "ma_banshee_es",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 9000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        },
+                        {
+                            "item": "ma_banshee_es",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 80000
+                        },
+                        {
+                            "item": "ma_moragora2",
+                            "count": 1
+                        },
+                        {
+                            "item": "ma_angraf_es",
+                            "count": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sk_c3026_3_sknm",
+            "icon": "sk_c3026_3",
+            "can_enhance": false,
+            "description": "sk_c3026_3_de",
+            "values": [],
+            "passive": false,
+            "cooldown": 5,
+            "soul_gain": 2,
+            "pow": 0.9,
+            "att_rate": 1.8,
+            "buff": [
+                12
+            ],
+            "debuff": [
+                18
+            ],
+            "common": [],
+            "soul_description": "sk_c3026_3s_de",
+            "soul_requirement": 10,
+            "soul_pow": 0.9,
+            "soul_att_rate": 2.5,
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 4000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 4000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_cd1",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 4000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 9000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 1
+                        },
+                        {
+                            "item": "ma_banshee_es",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 18000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 2
+                        },
+                        {
+                            "item": "ma_banshee_es",
+                            "count": 2
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 37000
+                        },
+                        {
+                            "item": "ma_moragora1",
+                            "count": 3
+                        },
+                        {
+                            "item": "ma_banshee_es",
+                            "count": 5
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 80000
+                        },
+                        {
+                            "item": "ma_moragora2",
+                            "count": 1
+                        },
+                        {
+                            "item": "ma_angraf_es",
+                            "count": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "specialty_change": {}
+}

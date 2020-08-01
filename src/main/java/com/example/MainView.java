@@ -3,12 +3,15 @@ package com.example;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Set;
 
+import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.DetachEvent;
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -27,7 +30,6 @@ import com.vaadin.flow.component.upload.receivers.MultiFileMemoryBuffer;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.server.StreamResource;
-import com.vaadin.shared.ui.ContentMode;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +60,7 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed
      *                bean.
      */
+    //@VaadinServletConfiguration(productionMode = false,heartbeatInterval=1)
     public MainView(@Autowired GreetService service) {
 
         final Grid<Equipment> grid = new Grid<>(Equipment.class);
@@ -81,14 +84,15 @@ public class MainView extends VerticalLayout {
         String Ntbl = "N_"+time;
         String Rtbl = "R_"+time;
         String Btbl = "B_"+time;
-
+        String heroTbl = "heros_"+time;
         e7Database e7 = new e7Database();
-        e7.createTable(Wtbl);
-        e7.createTable(Htbl);
-        e7.createTable(Ctbl);
-        e7.createTable(Ntbl);
-        e7.createTable(Rtbl);
-        e7.createTable(Btbl);
+        e7.createTable(Wtbl,"w");
+        e7.createTable(Htbl,"h");
+        e7.createTable(Ctbl,"c");
+        e7.createTable(Ntbl,"n");
+        e7.createTable(Rtbl,"r");
+        e7.createTable(Btbl,"b");
+        e7.createHeroTable(heroTbl);
 
         grid.setWidth("1600px");
         statGrid.setWidth("1600px");
@@ -135,7 +139,17 @@ public class MainView extends VerticalLayout {
         TextField maxEffLabel = new TextField();
         maxEffLabel.setLabel("Minimum Eff Threshold");
         maxEffLabel.setValue("0");
-
+        addDetachListener(e -> {
+            System.out.println("closed!!!!");
+            e7.dropTable(Wtbl);
+            e7.dropTable(Htbl);
+            e7.dropTable(Ctbl);
+            e7.dropTable(Ntbl);
+            e7.dropTable(Rtbl);
+            e7.dropTable(Btbl);
+            e7.dropTable(heroTbl);
+        });
+        //addDetachListener(new ComponentEventListener<DetachEvent>());
         
         try{
             String bag = ex.bag;
@@ -167,12 +181,12 @@ public class MainView extends VerticalLayout {
                 e7.clearBag(Ntbl);
                 e7.clearBag(Rtbl);
                 e7.clearBag(Btbl);
-                e7.insertBag(b.getWlist(), Wtbl);
-                e7.insertBag(b.getHlist(), Htbl);
-                e7.insertBag(b.getChlist(), Ctbl);
-                e7.insertBag(b.getNlist(), Ntbl);
-                e7.insertBag(b.getRlist(), Rtbl);
-                e7.insertBag(b.getBlist(), Btbl);
+                e7.insertBag(b.getWlist(),Wtbl,b.wStr,"w");
+                e7.insertBag(b.getHlist(),Htbl,b.hStr,"h");
+                e7.insertBag(b.getChlist(),Ctbl,b.cStr,"c");
+                e7.insertBag(b.getNlist(),Ntbl,b.nStr,"n");
+                e7.insertBag(b.getRlist(),Rtbl,b.rStr,"r");
+                e7.insertBag(b.getBlist(),Btbl,b.bStr,"b");
                 //grid.setItems(tmp);
             }
             
@@ -189,6 +203,7 @@ public class MainView extends VerticalLayout {
                 }
                 
                 listBox.setItems(hnames);
+                e7.insertHeros(b.heros, heroTbl);
             }
         }
         catch(Exception e1){
@@ -252,12 +267,12 @@ public class MainView extends VerticalLayout {
                     e7.clearBag(Ntbl);
                     e7.clearBag(Rtbl);
                     e7.clearBag(Btbl);
-                    e7.insertBag(b.getWlist(), Wtbl);
-                    e7.insertBag(b.getHlist(), Htbl);
-                    e7.insertBag(b.getChlist(), Ctbl);
-                    e7.insertBag(b.getNlist(), Ntbl);
-                    e7.insertBag(b.getRlist(), Rtbl);
-                    e7.insertBag(b.getBlist(), Btbl);
+                    e7.insertBag(b.getWlist(), Wtbl,b.wStr,"w");
+                    e7.insertBag(b.getHlist(), Htbl,b.hStr,"h");
+                    e7.insertBag(b.getChlist(), Ctbl,b.cStr,"c");
+                    e7.insertBag(b.getNlist(), Ntbl,b.nStr,"n");
+                    e7.insertBag(b.getRlist(), Rtbl,b.rStr,"r");
+                    e7.insertBag(b.getBlist(), Btbl,b.bStr,"b");
                 }
                 
                 String heroBag = IOUtils.toString(inputStreamHero, StandardCharsets.UTF_8);
@@ -273,6 +288,7 @@ public class MainView extends VerticalLayout {
                     }
                     
                     listBox.setItems(hnames);
+                    e7.insertHeros(b.heros, heroTbl);
                 }
             }
             catch(Exception e1){
@@ -341,60 +357,63 @@ public class MainView extends VerticalLayout {
                 }
                 System.out.println(checkboxGroup.getValue());
 
-                if(maxAtkLabel.getValue().equals("")||(maxAtkLabel.getValue().isEmpty())){
-                    maxAtkLabel.setValue("0");
-                }
-                if(maxDefLabel.getValue().equals("")||maxDefLabel.getValue().isEmpty()){
-                    maxDefLabel.setValue("0");
-                }
+                // if(maxAtkLabel.getValue().equals("")||(maxAtkLabel.getValue().isEmpty())){
+                //     maxAtkLabel.setValue("0");
+                // }
+                // if(maxDefLabel.getValue().equals("")||maxDefLabel.getValue().isEmpty()){
+                //     maxDefLabel.setValue("0");
+                // }
                 
-                if(maxHpLabel.getValue().equals("")||maxHpLabel.getValue().isEmpty()){
-                    maxHpLabel.setValue("0");
-                }
+                // if(maxHpLabel.getValue().equals("")||maxHpLabel.getValue().isEmpty()){
+                //     maxHpLabel.setValue("0");
+                // }
                 
-                if(maxCritLabel.getValue().equals("")||maxCritLabel.getValue().isEmpty()){
-                    maxCritLabel.setValue("0");
-                }
+                // if(maxCritLabel.getValue().equals("")||maxCritLabel.getValue().isEmpty()){
+                //     maxCritLabel.setValue("0");
+                // }
                 
-                if(maxCdLabel.getValue().equals("")||maxCdLabel.getValue().isEmpty()){
-                    maxCdLabel.setValue("0");
-                }
+                // if(maxCdLabel.getValue().equals("")||maxCdLabel.getValue().isEmpty()){
+                //     maxCdLabel.setValue("0");
+                // }
                 
-                if(maxSpdLabel.getValue().equals("")||maxSpdLabel.getValue().isEmpty()){
-                    maxSpdLabel.setValue("0");
-                }
-                if(maxEffLabel.getValue().equals("")||maxEffLabel.getValue().isEmpty()){
-                    maxEffLabel.setValue("0");
-                }
+                // if(maxSpdLabel.getValue().equals("")||maxSpdLabel.getValue().isEmpty()){
+                //     maxSpdLabel.setValue("0");
+                // }
+                // if(maxEffLabel.getValue().equals("")||maxEffLabel.getValue().isEmpty()){
+                //     maxEffLabel.setValue("0");
+                // }
                 
-                Sets s = b.runCalcs(selectedHero,checkboxGroup.getValue().contains("Atk"),
-                    checkboxGroup.getValue().contains("Def"),checkboxGroup.getValue().contains("Hp"),
-                    checkboxGroup.getValue().contains("Crit Chance"),checkboxGroup.getValue().contains("Crit Dmg"),
-                    checkboxGroup.getValue().contains("Spd"),checkboxGroup.getValue().contains("Eff"),checkboxGroup.getValue().contains("Special DPS"),
-                    Integer.parseInt(maxAtkLabel.getValue()),Integer.parseInt(maxDefLabel.getValue()),
-                    Integer.parseInt(maxHpLabel.getValue()),Integer.parseInt(maxCritLabel.getValue()),
-                    Integer.parseInt(maxCdLabel.getValue()),Integer.parseInt(maxSpdLabel.getValue()),
-                    Integer.parseInt(maxEffLabel.getValue())
-                    );
+                // Sets s = b.runCalcs(selectedHero,checkboxGroup.getValue().contains("Atk"),
+                //     checkboxGroup.getValue().contains("Def"),checkboxGroup.getValue().contains("Hp"),
+                //     checkboxGroup.getValue().contains("Crit Chance"),checkboxGroup.getValue().contains("Crit Dmg"),
+                //     checkboxGroup.getValue().contains("Spd"),checkboxGroup.getValue().contains("Eff"),checkboxGroup.getValue().contains("Special DPS"),
+                //     Integer.parseInt(maxAtkLabel.getValue()),Integer.parseInt(maxDefLabel.getValue()),
+                //     Integer.parseInt(maxHpLabel.getValue()),Integer.parseInt(maxCritLabel.getValue()),
+                //     Integer.parseInt(maxCdLabel.getValue()),Integer.parseInt(maxSpdLabel.getValue()),
+                //     Integer.parseInt(maxEffLabel.getValue())
+                //     );
                 
-                out_calc.add(s.getWeapon()); out_calc.add(s.getHead());out_calc.add(s.getChest());
-                out_calc.add(s.getNeck());out_calc.add(s.getRing());out_calc.add(s.getBoot());
+                // out_calc.add(s.getWeapon()); out_calc.add(s.getHead());out_calc.add(s.getChest());
+                // out_calc.add(s.getNeck());out_calc.add(s.getRing());out_calc.add(s.getBoot());
                 
-                statGrid.setItems(out_calc);
+                // statGrid.setItems(out_calc);
                 
-                ArrayList<Hero> h = b.calcHero(selectedHero,out_calc);
+                // ArrayList<Hero> h = b.calcHero(selectedHero,out_calc);
 
-                ArrayList<Equipment> tmp1 = new ArrayList<>();
-                for(int i=0;i<b.history.size();i++){
-                    Sets set = b.history.get(i);
+                // ArrayList<Equipment> tmp1 = new ArrayList<>();
+                // for(int i=0;i<b.history.size();i++){
+                //     Sets set = b.history.get(i);
 
-                    tmp1.add( set.getWeapon());tmp1.add( set.getHead());tmp1.add( set.getChest());
-                    tmp1.add( set.getNeck());tmp1.add( set.getRing());tmp1.add( set.getBoot());
-                }
+                //     tmp1.add( set.getWeapon());tmp1.add( set.getHead());tmp1.add( set.getChest());
+                //     tmp1.add( set.getNeck());tmp1.add( set.getRing());tmp1.add( set.getBoot());
+                // }
         
-                heroGrid.setItems(h);
+                // heroGrid.setItems(h);
                 
-                historyGrid.setItems(tmp1);
+                // historyGrid.setItems(tmp1);
+              
+                e7.runCalcs(Wtbl, Htbl, Ctbl, Ntbl, Rtbl, Btbl,checkboxGroup.getValue());
+                
             }
         
          );
@@ -403,5 +422,7 @@ public class MainView extends VerticalLayout {
         
 
     }
+
+    
 
 }

@@ -1,0 +1,601 @@
+{
+    "_id": "azalea",
+    "id": "c3031",
+    "name": "chrn_c3031",
+    "moonlight": false,
+    "rarity": 3,
+    "attribute": "fire",
+    "role": "warrior",
+    "zodiac": "scorpion",
+    "description": "c3031_2line",
+    "story": "c3031_de_story",
+    "get_line": "c3031_gacha_get",
+    "stats": {
+        "bra": 88,
+        "int": 85,
+        "fai": 54,
+        "des": 62
+    },
+    "relationships": [
+        {
+            "name": null,
+            "description": null,
+            "relations": [
+                {
+                    "id": "c3065",
+                    "slot": 1,
+                    "description": "chre_c3031_1_rt",
+                    "relation": "re_trust_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c3034",
+                    "slot": 2,
+                    "description": "chre_c3031_2_rt",
+                    "relation": "re_longing_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c3051",
+                    "slot": 3,
+                    "description": "chre_c3031_3_rt",
+                    "relation": "re_rival_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c1010",
+                    "slot": 4,
+                    "description": "chre_c3031_4_rt",
+                    "relation": "re_rival_tx",
+                    "upgrade": {}
+                }
+            ]
+        }
+    ],
+    "self_devotion": {
+        "type": "att",
+        "grades": {
+            "D": 36,
+            "C": 54,
+            "B": 72,
+            "A": 90,
+            "S": 108,
+            "SS": 126,
+            "SSS": 144
+        }
+    },
+    "devotion": {
+        "type": "att",
+        "grades": {
+            "D": 24,
+            "C": 36,
+            "B": 48,
+            "A": 60,
+            "S": 72,
+            "SS": 84,
+            "SSS": 96
+        },
+        "slots": {
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true
+        }
+    },
+    "specialty": {
+        "name": "sms_c3031_nm",
+        "description": "sms_c3031_de",
+        "icon": "smc_time_3",
+        "effect_type": "reward_bonus",
+        "effect_value": 0.1,
+        "command": 22,
+        "charm": 60,
+        "politics": 43,
+        "type": {
+            "name": "smc_time_nm",
+            "description": "smc_time_de"
+        }
+    },
+    "camping": {
+        "personalities": [
+            "c_pers_28_desire",
+            "c_pers_8_heroic"
+        ],
+        "topics": [
+            "c_topic_3_taleheroic",
+            "c_topic_19_advice"
+        ],
+        "values": {
+            "c_topic_1_criticism": -2,
+            "c_topic_2_realistic": -3,
+            "c_topic_3_taleheroic": 5,
+            "c_topic_4_cheeringup": 1,
+            "c_topic_5_charmcheer": 3,
+            "c_topic_6_herocheer": 6,
+            "c_topic_7_sadmemo": 2,
+            "c_topic_8_enjoymemo": 4,
+            "c_topic_9_happymemo": 4,
+            "c_topic_10_unique": 3,
+            "c_topic_11_narcissis": 1,
+            "c_topic_12_occult": 2,
+            "c_topic_13_myth": 7,
+            "c_topic_14_gagsto": -2,
+            "c_topic_15_foodsto": 4,
+            "c_topic_16_horrorsto": 2,
+            "c_topic_17_gossip": -2,
+            "c_topic_18_dream": 5,
+            "c_topic_19_advice": 0,
+            "c_topic_20_moaning": -5,
+            "c_topic_22_belief": 2,
+            "c_topic_25_adventure": 2
+        }
+    },
+    "zodiac_tree": [
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runefire1",
+                    "count": 5
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "max_hp_rate",
+                    "value": 0.03,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runefire1",
+                    "count": 9
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att_rate",
+                    "value": 0.03,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_02_nm",
+            "description": "zs_02_de",
+            "skill_enhanced": 2,
+            "costs": [
+                {
+                    "item": "ma_runefire1",
+                    "count": 12
+                },
+                {
+                    "item": "ma_runefire2",
+                    "count": 6
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runefire2",
+                    "count": 15
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "def_rate",
+                    "value": 0.06,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runefire3",
+                    "count": 4
+                },
+                {
+                    "item": "ma_carapace_es",
+                    "count": 9
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "max_hp_rate",
+                    "value": 0.06,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runefire3",
+                    "count": 6
+                },
+                {
+                    "item": "ma_powder_es",
+                    "count": 6
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att_rate",
+                    "value": 0.06,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        }
+    ],
+    "skills": [
+        {
+            "name": "sk_c3031_1_sknm",
+            "icon": "sk_m0005_f",
+            "can_enhance": false,
+            "description": "sk_c3031_1_de",
+            "values": [],
+            "passive": false,
+            "cooldown": 0,
+            "soul_gain": 1,
+            "pow": 1.05,
+            "att_rate": 1.0,
+            "buff": [],
+            "debuff": [],
+            "common": [],
+            "enhancements": [
+                {
+                    "string": "sklv_de_heal10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 2000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 80
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 3000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 180
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_heal15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 10000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 320
+                        },
+                        {
+                            "item": "ma_spearman_es",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 18000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 530
+                        },
+                        {
+                            "item": "ma_spearman_es",
+                            "count": 2
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_heal15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 32000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 850
+                        },
+                        {
+                            "item": "ma_spearman_es",
+                            "count": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sk_c3031_2_sknm",
+            "icon": "sk_m0006_f",
+            "can_enhance": true,
+            "description": "sk_c3031_2_de",
+            "values": [
+                0.8
+            ],
+            "passive": false,
+            "cooldown": 5,
+            "soul_gain": 3,
+            "pow": 1.05,
+            "att_rate": 1.5,
+            "buff": [],
+            "debuff": [
+                25,
+                27
+            ],
+            "common": [],
+            "soul_description": "sk_c3031_2s_de",
+            "soul_requirement": 20,
+            "soul_pow": 1.05,
+            "soul_att_rate": 1.5,
+            "enhanced_description": "sk_c3031_2u_de",
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 1000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 50
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_eff1_10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 2000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 100
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_cd1",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 3000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 170
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_eff1_10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 9000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 280
+                        },
+                        {
+                            "item": "ma_spearman_es",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 16000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 450
+                        },
+                        {
+                            "item": "ma_spearman_es",
+                            "count": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sk_c3031_3_sknm",
+            "icon": "sk_m0017_f",
+            "can_enhance": false,
+            "description": "sk_c3031_3_de",
+            "values": [
+                0.65
+            ],
+            "passive": false,
+            "cooldown": 4,
+            "soul_gain": 2,
+            "pow": 1,
+            "att_rate": 0.7,
+            "buff": [],
+            "debuff": [
+                19
+            ],
+            "common": [],
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 1000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 50
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_eff1_10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 2000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 100
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_cd1",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 3000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 170
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 9000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 280
+                        },
+                        {
+                            "item": "ma_spearman_es",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 16000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 450
+                        },
+                        {
+                            "item": "ma_spearman_es",
+                            "count": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "specialty_change": {}
+}

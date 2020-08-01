@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.HashMap;
+
 public class Hero {
     String name;
     double atk, def, hp, spd, crit, critdmg, eff, effres;

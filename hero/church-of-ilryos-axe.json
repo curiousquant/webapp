@@ -1,0 +1,991 @@
+{
+    "_id": "church-of-ilryos-axe",
+    "id": "c3025",
+    "name": "chrn_c3025",
+    "moonlight": true,
+    "rarity": 3,
+    "attribute": "dark",
+    "role": "warrior",
+    "zodiac": "lion",
+    "description": "c3025_2line",
+    "story": "c3025_de_story",
+    "get_line": "c3025_gacha_get",
+    "stats": {
+        "bra": 93,
+        "int": 75,
+        "fai": 55,
+        "des": 66
+    },
+    "relationships": [
+        {
+            "name": null,
+            "description": null,
+            "relations": [
+                {
+                    "id": "m9191",
+                    "slot": 1,
+                    "description": "chre_c3025_1_rt",
+                    "relation": "re_love_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c1050",
+                    "slot": 2,
+                    "description": "chre_c3025_2_rt",
+                    "relation": "re_love_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c1001",
+                    "slot": 3,
+                    "description": "chre_c3025_3_rt",
+                    "relation": "re_grudge_tx",
+                    "upgrade": {}
+                },
+                {
+                    "id": "c1005",
+                    "slot": 4,
+                    "description": "chre_c3025_4_rt",
+                    "relation": "re_grudge_tx",
+                    "upgrade": {}
+                }
+            ]
+        }
+    ],
+    "self_devotion": {
+        "type": "att",
+        "grades": {
+            "D": 36,
+            "C": 54,
+            "B": 72,
+            "A": 90,
+            "S": 108,
+            "SS": 126,
+            "SSS": 144
+        }
+    },
+    "devotion": {
+        "type": "max_hp",
+        "grades": {
+            "D": 120,
+            "C": 180,
+            "B": 240,
+            "A": 300,
+            "S": 360,
+            "SS": 420,
+            "SSS": 480
+        },
+        "slots": {
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true
+        }
+    },
+    "specialty": {
+        "name": "sms_c3025_nm",
+        "description": "sms_c3025_de",
+        "icon": "smc_mission_1",
+        "effect_type": "reward_bonus",
+        "effect_value": 0.1,
+        "command": 25,
+        "charm": 7,
+        "politics": 14,
+        "type": {
+            "name": "smc_mission_nm",
+            "description": "smc_mission_de"
+        }
+    },
+    "camping": {
+        "personalities": [
+            "c_pers_20_religious",
+            "c_pers_28_desire"
+        ],
+        "topics": [
+            "c_topic_2_realistic",
+            "c_topic_17_gossip"
+        ],
+        "values": {
+            "c_topic_1_criticism": 0,
+            "c_topic_2_realistic": 0,
+            "c_topic_3_taleheroic": 2,
+            "c_topic_4_cheeringup": 1,
+            "c_topic_5_charmcheer": 2,
+            "c_topic_6_herocheer": 5,
+            "c_topic_7_sadmemo": 3,
+            "c_topic_8_enjoymemo": 3,
+            "c_topic_9_happymemo": 3,
+            "c_topic_10_unique": 3,
+            "c_topic_11_narcissis": 2,
+            "c_topic_12_occult": -1,
+            "c_topic_13_myth": 7,
+            "c_topic_14_gagsto": -2,
+            "c_topic_15_foodsto": 3,
+            "c_topic_16_horrorsto": 0,
+            "c_topic_17_gossip": -1,
+            "c_topic_18_dream": 5,
+            "c_topic_19_advice": 0,
+            "c_topic_20_moaning": 0,
+            "c_topic_22_belief": 6,
+            "c_topic_25_adventure": 1
+        }
+    },
+    "zodiac_tree": [
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runedark1",
+                    "count": 5
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att_rate",
+                    "value": 0.03,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runedark1",
+                    "count": 9
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att_rate",
+                    "value": 0.03,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_02_nm",
+            "description": "zs_02_de",
+            "skill_enhanced": 2,
+            "costs": [
+                {
+                    "item": "ma_runedark1",
+                    "count": 12
+                },
+                {
+                    "item": "ma_runedark2",
+                    "count": 6
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att",
+                    "value": 20,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 60,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runedark2",
+                    "count": 15
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "cri",
+                    "value": 0.08,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runedark3",
+                    "count": 4
+                },
+                {
+                    "item": "ma_wolf_es",
+                    "count": 9
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att_rate",
+                    "value": 0.06,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        },
+        {
+            "name": "zs_01_nm",
+            "description": "zs_01_de",
+            "skill_enhanced": false,
+            "costs": [
+                {
+                    "item": "ma_runedark3",
+                    "count": 6
+                },
+                {
+                    "item": "ma_queen_es",
+                    "count": 6
+                }
+            ],
+            "stats": [
+                {
+                    "stat": "att_rate",
+                    "value": 0.06,
+                    "type": "sub"
+                },
+                {
+                    "stat": "att",
+                    "value": 30,
+                    "type": "main"
+                },
+                {
+                    "stat": "max_hp",
+                    "value": 80,
+                    "type": "sub"
+                }
+            ]
+        }
+    ],
+    "skills": [
+        {
+            "name": "sk_c3025_1_sknm",
+            "icon": "sk_m0013_d",
+            "can_enhance": false,
+            "description": "sk_c3025_1_de",
+            "values": [],
+            "passive": false,
+            "cooldown": 0,
+            "soul_gain": 1,
+            "pow": 0.95,
+            "att_rate": 1.0,
+            "buff": [],
+            "debuff": [
+                32
+            ],
+            "common": [],
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 1000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 50
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 2000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 120
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 4000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 230
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 21000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 400
+                        },
+                        {
+                            "item": "ma_demon_es",
+                            "count": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sk_c3025_2_sknm",
+            "icon": "sk_m0014_d",
+            "can_enhance": true,
+            "description": "sk_c3025_2_de",
+            "values": [],
+            "passive": false,
+            "cooldown": 3,
+            "soul_gain": 2,
+            "pow": 0.95,
+            "att_rate": 0.8,
+            "buff": [],
+            "debuff": [],
+            "common": [
+                35
+            ],
+            "soul_description": "sk_c3025_2s_de",
+            "soul_requirement": 10,
+            "soul_pow": 0.95,
+            "soul_att_rate": 1.0,
+            "enhanced_description": "sk_c3025_2u_de",
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 2000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 150
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 14000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 300
+                        },
+                        {
+                            "item": "ma_demon_es",
+                            "count": 2
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 23000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 550
+                        },
+                        {
+                            "item": "ma_demon_es",
+                            "count": 3
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 35000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 1100
+                        },
+                        {
+                            "item": "ma_demon_es",
+                            "count": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sk_c3025_3_sknm",
+            "icon": "sk_m0017_d",
+            "can_enhance": false,
+            "description": "sk_c3025_3_de",
+            "values": [
+                0.8
+            ],
+            "passive": false,
+            "cooldown": 3,
+            "soul_gain": 1,
+            "pow": 0.9,
+            "att_rate": 1.8,
+            "buff": [],
+            "debuff": [
+                18
+            ],
+            "common": [],
+            "enhancements": [
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 1000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 50
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 2000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 100
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg5",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 3000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 170
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_eff1_10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 9000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 280
+                        },
+                        {
+                            "item": "ma_demon_es",
+                            "count": 1
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_eff1_10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 16000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 450
+                        },
+                        {
+                            "item": "ma_demon_es",
+                            "count": 2
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg10",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 25000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 700
+                        },
+                        {
+                            "item": "ma_demon_es",
+                            "count": 3
+                        }
+                    ]
+                },
+                {
+                    "string": "sklv_de_dmg15",
+                    "costs": [
+                        {
+                            "item": "to_gold",
+                            "count": 39000
+                        },
+                        {
+                            "item": "to_stigma",
+                            "count": 1050
+                        },
+                        {
+                            "item": "ma_demon_es",
+                            "count": 5
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "specialty_change": {
+        "id": "c4025",
+        "changed_skill": 3,
+        "quests": [
+            {
+                "category": "de_race_kill",
+                "mission_name": "cc_c3025_quest_01_name",
+                "mission_description": "cc_c3025_quest_01_desc"
+            },
+            {
+                "category": "de_token_give",
+                "mission_name": "cc_c3025_quest_02_name",
+                "mission_description": "cc_c3025_quest_02_desc"
+            },
+            {
+                "category": "de_token_take",
+                "mission_name": "cc_c3025_quest_03_name",
+                "mission_description": "cc_c3025_quest_03_desc"
+            },
+            {
+                "category": "de_trial_clear",
+                "mission_name": "cc_c3025_quest_04_name",
+                "mission_description": "cc_c3025_quest_04_desc"
+            }
+        ],
+        "tree": [
+            [
+                {
+                    "id": 1,
+                    "position": 1,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "stat",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_01_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.01,
+                            "description": "str_c4025_01_1_de",
+                            "upgrade": "str_c4025_01_1_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.02,
+                            "description": "str_c4025_01_2_de",
+                            "upgrade": "str_c4025_01_2_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.02,
+                            "description": "str_c4025_01_3_de",
+                            "upgrade": "str_c4025_01_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "position": 2,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_02_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_02_1_de",
+                            "upgrade": "str_c4025_02_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_02_2_de",
+                            "upgrade": "str_c4025_02_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_02_3_de",
+                            "upgrade": "str_c4025_02_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "position": 3,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "stat",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_03_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "cri",
+                            "value": 0.01,
+                            "description": "str_c4025_03_1_de",
+                            "upgrade": "str_c4025_03_1_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "cri",
+                            "value": 0.02,
+                            "description": "str_c4025_03_2_de",
+                            "upgrade": "str_c4025_03_2_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "cri",
+                            "value": 0.02,
+                            "description": "str_c4025_03_3_de",
+                            "upgrade": "str_c4025_03_3_up"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "id": 4,
+                    "position": 1,
+                    "require_id": 1,
+                    "enhancements": [
+                        {
+                            "type": "stat",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_04_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.01,
+                            "description": "str_c4025_04_1_de",
+                            "upgrade": "str_c4025_04_1_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.02,
+                            "description": "str_c4025_04_2_de",
+                            "upgrade": "str_c4025_04_2_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.02,
+                            "description": "str_c4025_04_3_de",
+                            "upgrade": "str_c4025_04_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "position": 2,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_05_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_05_1_de",
+                            "upgrade": "str_c4025_05_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_05_2_de",
+                            "upgrade": "str_c4025_05_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_05_3_de",
+                            "upgrade": "str_c4025_05_3_up"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "id": 6,
+                    "position": 1,
+                    "require_id": 4,
+                    "enhancements": [
+                        {
+                            "type": "stat",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_06_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.02,
+                            "description": "str_c4025_06_1_de",
+                            "upgrade": "str_c4025_06_1_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.03,
+                            "description": "str_c4025_06_2_de",
+                            "upgrade": "str_c4025_06_2_up"
+                        },
+                        {
+                            "type": "stat",
+                            "stat": "max_hp_rate",
+                            "value": 0.05,
+                            "description": "str_c4025_06_3_de",
+                            "upgrade": "str_c4025_06_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "position": 3,
+                    "require_id": null,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_09_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_09_1_de",
+                            "upgrade": "str_c4025_09_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_09_2_de",
+                            "upgrade": "str_c4025_09_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_09_3_de",
+                            "upgrade": "str_c4025_09_3_up"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "id": 8,
+                    "position": 1,
+                    "require_id": 6,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_10_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_10_1_de",
+                            "upgrade": "str_c4025_10_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_10_2_de",
+                            "upgrade": "str_c4025_10_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_10_3_de",
+                            "upgrade": "str_c4025_10_3_up"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "position": 2,
+                    "require_id": 5,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_08_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_08_1_de",
+                            "upgrade": "str_c4025_08_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_08_2_de",
+                            "upgrade": "str_c4025_08_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_08_3_de",
+                            "upgrade": "str_c4025_08_3_up"
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "id": 10,
+                    "position": 3,
+                    "require_id": 7,
+                    "enhancements": [
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_07_0_de",
+                            "upgrade": null
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_07_1_de",
+                            "upgrade": "str_c4025_07_1_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_07_2_de",
+                            "upgrade": "str_c4025_07_2_up"
+                        },
+                        {
+                            "type": "skill",
+                            "stat": null,
+                            "value": 0,
+                            "description": "str_c4025_07_3_de",
+                            "upgrade": "str_c4025_07_3_up"
+                        }
+                    ]
+                }
+            ]
+        ]
+    }
+}
