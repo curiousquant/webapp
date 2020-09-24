@@ -7,19 +7,23 @@ public class EquippedHero extends Hero{
     Sets set;
     HashMap<String,String> skills;
     double netAtk, netDef, netHp, s1dmg, s2dmg, s3dmg;
+    int s1cd,s2cd,s3cd;
     public EquippedHero(String name,double atk, double def, double hp, double spd, 
                             double crit, double critdmg, double eff, double effres,
-                                HashMap<String,String> skills,Sets set){
+                                HashMap<String,String> skills,Sets set,int s1cd,int s2cd, int s3cd){
         super(name,atk,def,hp,spd,crit,critdmg,eff,effres);
         this.set = set;
         this.skills = skills;
+        this.s1cd = s1cd;
+        this.s2cd = s2cd;
+        this.s3cd = s3cd;
         netAtk = calcAtk();
         netDef = calcDef();
         netHp = calcHp();
         s1dmg = calcS1();
         s2dmg = calcS2();
         s3dmg = calcS3();
-    
+                                    
         System.out.println(name);
         System.out.println("netAtk:"+netAtk);
         System.out.println("netDef:"+netDef);
@@ -146,6 +150,30 @@ public class EquippedHero extends Hero{
 
     public void setS3dmg(double s3dmg) {
         this.s3dmg = s3dmg;
+    }
+
+    public int getS1cd() {
+        return this.s1cd;
+    }
+
+    public void setS1cd(int s1cd) {
+        this.s1cd = s1cd;
+    }
+
+    public int getS2cd() {
+        return this.s2cd;
+    }
+
+    public void setS2cd(int s2cd) {
+        this.s2cd = s2cd;
+    }
+
+    public int getS3cd() {
+        return this.s3cd;
+    }
+
+    public void setS3cd(int s3cd) {
+        this.s3cd = s3cd;
     }
 
 }

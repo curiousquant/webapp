@@ -11,7 +11,7 @@ import org.json.JSONObject;
 
 
 public class ParseHeroJson {
-    final static int SKILLCNT = 3,GRADE = 5, LEVEL = 50;
+    final static int SKILLCNT = 3,GRADE = 6, LEVEL = 60;
     final static String[] SKILLATTRIBUTE = {"name","pow","att_rate","cooldown"};
     final String FILEPATH = "hero";
     
@@ -50,7 +50,8 @@ public class ParseHeroJson {
                 }
             }
             
-            EquippedHero h = new EquippedHero(name.split(".json")[0],atk,def,hp,spd,crit,cd,eff,effres,skills,set);
+            EquippedHero h = new EquippedHero(name.split(".json")[0],atk,def,hp,spd,crit,cd,eff,effres,
+                                                skills,set,Integer.parseInt(skills.get("cooldown"+0)),Integer.parseInt(skills.get("cooldown"+1)),Integer.parseInt(skills.get("cooldown"+2)));
             return h;
         }
         catch(Exception e){
